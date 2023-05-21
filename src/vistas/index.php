@@ -27,6 +27,12 @@
     </nav>
     <div class="search">
         <form action="" method="post">
+            <div class="trip-type">
+                <input type="radio" name="trip-type" id="one-way" id="one-way" value="oneway">
+                <label for="one-way">Solo ida</label>
+                <input type="radio" name="trip-type" id="round-trip" id="round-trip" value="roundtrip">
+                <label for="round-trip">Ida y vuelta</label>
+            </div>
             <div class="airport-selectors">
                 <select name="dep_apt" id="dep_apt">
                 <option value="null" disabled selected>Seleccione un aeropuerto de salida</option>
