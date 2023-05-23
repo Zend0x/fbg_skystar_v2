@@ -1,0 +1,68 @@
+body,
+html {
+  font-family: Arial, sans-serif;
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+h1 {
+  text-align: center;
+}
+.container {
+  height: 100%;
+  width: 100%;
+}
+.navbar {
+  background-color: #854cb4;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  height: 6%;
+}
+.navbar-center {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.navbar-brand {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+.login-button {
+  padding: 10px 20px;
+  background-color: white;
+  color: #854cb4;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.content {
+  height: 94%;
+}
+
+.column {
+  width: 10%;
+  height: 100%;
+  float: left;
+  background-color: red;
+}
+
+.main-column {
+  width: 80%;
+  height: 100%;
+  float: left;
+  background-color: blue;
+}
+
+.flight-option {
+  background-color: red;
+  width: 60%;
+  height: 10%;
+}

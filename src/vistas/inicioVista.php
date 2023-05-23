@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,23 +8,24 @@
     <link rel="stylesheet" type="text/css" href="../../css/index.css">
     <title>Skystar Airways</title>
     <?php
-        ini_set('display_errors', 1);
-        ini_set('html_errors', 1);
+    ini_set('display_errors', 1);
+    ini_set('html_errors', 1);
 
-        require("../negocio/aeropuertosReglasNegocio.php");
+    require("../negocio/aeropuertosReglasNegocio.php");
 
-        $aeropuertoBL=new AeropuertosReglasNegocio();
-        $datosAeropuertos=$aeropuertoBL->obtener();
+    $aeropuertoBL = new AeropuertosReglasNegocio();
+    $datosAeropuertos = $aeropuertoBL->obtener();
     ?>
 </head>
+
 <body>
     <nav class="navbar">
-    <div class="navbar-center">
-        <span class="navbar-brand">Skystar Airways</span>
-    </div>
-    <div class="navbar-right">
-        <button class="login-button">Iniciar sesión</button>
-    </div>
+        <div class="navbar-center">
+            <span class="navbar-brand">Skystar Airways</span>
+        </div>
+        <div class="navbar-right">
+            <button class="login-button">Iniciar sesión</button>
+        </div>
     </nav>
     <div class="search">
         <form action="buscadorVista.php" method="post">
@@ -37,17 +39,17 @@
                 <select name="dep_apt" id="dep_apt">
                     <option value="null" disabled selected>Seleccione un aeropuerto de salida</option>
                     <?php
-                        foreach($datosAeropuertos as $aeropuerto){
-                        echo '<option value="'.$aeropuerto->getICAO().'">'.$aeropuerto->getICAO().'</option>';
-                        }
+                    foreach ($datosAeropuertos as $aeropuerto) {
+                        echo '<option value="' . $aeropuerto->getICAO() . '">' . $aeropuerto->getICAO() . '</option>';
+                    }
                     ?>
                 </select>
                 <select name="arr_apt" id="arr_apt">
                     <option value="null" disabled selected>Seleccione un aeropuerto de llegada</option>
                     <?php
-                        foreach($datosAeropuertos as $aeropuerto){
-                        echo '<option value="'.$aeropuerto->getICAO().'">'.$aeropuerto->getICAO().'</option>';
-                        }
+                    foreach ($datosAeropuertos as $aeropuerto) {
+                        echo '<option value="' . $aeropuerto->getICAO() . '">' . $aeropuerto->getICAO() . '</option>';
+                    }
                     ?>
                 </select>
             </div>
@@ -68,7 +70,7 @@
                 var oneWayRadio = document.getElementById("one-way");
                 var returnDateLabel = document.getElementById("vuelta-label");
                 var returnDateInput = document.getElementById("fecha-vuelta");
-                console.log(oneWayRadio,returnDateLabel,returnDateInput)
+                console.log(oneWayRadio, returnDateLabel, returnDateInput)
 
                 oneWayRadio.addEventListener("change", function() {
                     if (this.checked) {
@@ -89,4 +91,5 @@
         </form>
     </div>
 </body>
+
 </html>
