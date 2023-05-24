@@ -11,7 +11,8 @@
     ini_set('display_errors', 1);
     ini_set('html_errors', 1);
 
-    require("../negocio/vuelosReglasNegocio.php");
+
+    //require("../negocio/vuelosReglasNegocio.php");
 
     //$vuelosBL=new VuelosReglasNegocio();
     //$datosVuelos=$vuelosBL->obtener($_POST['dep_apt'],$_POST['arr_apt']);
@@ -31,7 +32,21 @@
         <div class="content">
             <div class="column"></div>
             <div class="main-column">
-
+                <div class="flight-card">
+                    <div class="departure-time">
+                        <h2>Salida</h2>
+                        <p>10:00 AM</p>
+                        <p>[apt salida]</p>
+                    </div>
+                    <div class="center-info">
+                        <img src="../../assets/airplane.png" alt="airplane">
+                    </div>
+                    <div class="arrival-time">
+                        <h2>Llegada</h2>
+                        <p>12:30 PM</p>
+                        <p>[apt llegada]</p>
+                    </div>
+                </div>
             </div>
             <div class="column"></div>
         </div>
