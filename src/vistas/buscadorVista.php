@@ -23,7 +23,7 @@
     <div class="container">
         <nav class="navbar">
             <div class="navbar-center">
-                <span class="navbar-brand">Skystar Airways</span>
+                <span class="navbar-brand"><a href="inicioVista.php">Skystar Airways</a></span>
             </div>
             <div class="navbar-right">
                 <button class="login-button">Iniciar sesión</button>
@@ -40,6 +40,56 @@
                     </div>
                     <div class="center-info">
                         <img src="../../assets/airplane.png" alt="airplane">
+                        <p>[Departure time]</p>
+                    </div>
+                    <div class="arrival-time">
+                        <h2>Llegada</h2>
+                        <p>12:30 PM</p>
+                        <p>[apt llegada]</p>
+                        <p class="price">15€</p>
+                    </div>
+                </div>
+                <div class="flight-card">
+                    <div class="departure-time">
+                        <h2>Salida</h2>
+                        <p>10:00 AM</p>
+                        <p>[apt salida]</p>
+                    </div>
+                    <div class="center-info">
+                        <img src="../../assets/airplane.png" alt="airplane">
+                        <p>[Departure time]</p>
+                    </div>
+                    <div class="arrival-time">
+                        <h2>Llegada</h2>
+                        <p>12:30 PM</p>
+                        <p>[apt llegada]</p>
+                    </div>
+                </div>
+                <div class="flight-card">
+                    <div class="departure-time">
+                        <h2>Salida</h2>
+                        <p>10:00 AM</p>
+                        <p>[apt salida]</p>
+                    </div>
+                    <div class="center-info">
+                        <img src="../../assets/airplane.png" alt="airplane">
+                        <p>[Departure time]</p>
+                    </div>
+                    <div class="arrival-time">
+                        <h2>Llegada</h2>
+                        <p>12:30 PM</p>
+                        <p>[apt llegada]</p>
+                    </div>
+                </div>
+                <div class="flight-card">
+                    <div class="departure-time">
+                        <h2>Salida</h2>
+                        <p>10:00 AM</p>
+                        <p>[apt salida]</p>
+                    </div>
+                    <div class="center-info">
+                        <img src="../../assets/airplane.png" alt="airplane">
+                        <p>[Departure time]</p>
                     </div>
                     <div class="arrival-time">
                         <h2>Llegada</h2>

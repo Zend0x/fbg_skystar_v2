@@ -28,11 +28,13 @@ h1 {
 .navbar-brand {
   font-size: 20px;
   font-weight: bold;
+  margin-left: 5%;
 }
 
 .navbar-right {
   display: flex;
   align-items: center;
+  margin-right: 1%;
 }
 .login-button {
   padding: 10px 20px;
@@ -42,23 +44,30 @@ h1 {
   border-radius: 4px;
   cursor: pointer;
 }
+.login-button:hover {
+  background-color: rgb(236, 236, 236);
+  transition: 0.5s;
+}
 
 .content {
   height: 94%;
+  background-image: url("../assets/registan_square.jpg");
+  background-size: cover;
+  overflow-y: auto;
 }
 
 .column {
   width: 10%;
   height: 100%;
   float: left;
-  background-color: red;
+  background-color: #854cb44f;
 }
 
 .main-column {
   width: 80%;
   height: 100%;
   float: left;
-  background-color: blue;
+  background-color: #854cb44f;
 }
 
 .flight-option {
@@ -68,17 +77,18 @@ h1 {
 }
 
 .flight-card {
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.795);
   color: purple;
   font-family: Arial, sans-serif;
   border: 2px solid purple;
   padding: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   width: 80%;
-  margin: 1rem 0rem 0rem 3rem;
+  margin: 3% 0rem 0rem 8%;
   border-radius: 10px;
   display: grid;
   grid-template-columns: 1fr auto 1fr;
+  grid-template-rows: 10rem;
   grid-gap: 10px;
 }
 
@@ -93,13 +103,17 @@ h1 {
 }
 
 .center-info img {
-  height: 20%;
-  height: 20%;
+  height: 7rem;
 }
 
 .arrival-time {
   grid-column: 3;
   text-align: right;
+}
+
+.price {
+  font-weight: bolder;
+  font-size: x-large;
 }
 
 .flight-card h2 {
