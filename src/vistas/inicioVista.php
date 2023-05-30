@@ -29,7 +29,7 @@
     </nav>
     <div class="content">
         <div class="search">
-            <form action="buscadorVista.php" method="post" id="search-form">
+            <form action="buscadorVista.php" method="post" id="search-form" onchange="checkFormValues()">
                 <div class="trip-type">
                     <input type="radio" name="trip-type" id="one-way" id="one-way" value="oneway">
                     <label for="one-way">Solo ida</label>
@@ -37,15 +37,15 @@
                     <label for="round-trip">Ida y vuelta</label>
                 </div>
                 <div class="airport-selectors">
-                    <select name="dep_apt" id="dep_apt">
+                    <select name="dep_apt" id="dep_apt" onchange="selectValues('arr_apt',this.value)">
                         <option value="null" disabled selected>Seleccione un aeropuerto de salida</option>
                         <?php
                         foreach ($datosAeropuertos as $aeropuerto) {
-                            echo '<option value="' . $aeropuerto->getICAO() . '">' . $aeropuerto->getICAO() . '</option>';
+                            echo '<option value="' . $aeropuerto->getICAO() . '" >' . $aeropuerto->getICAO() . '</option>';
                         }
                         ?>
                     </select>
-                    <select name="arr_apt" id="arr_apt">
+                    <select name="arr_apt" id="arr_apt" onchange="selectValues('dep_apt',this.value)">
                         <option value="null" disabled selected>Seleccione un aeropuerto de llegada</option>
                         <?php
                         foreach ($datosAeropuertos as $aeropuerto) {
@@ -67,64 +67,10 @@
                     </div>
                     <input id="submit-button" class="disabled-button" disabled type="submit" value="Buscar vuelos">
                 </div>
-                <script>
-                    var oneWayRadio = document.getElementById("one-way");
-                    let departureDateInput = document.getElementById("fecha-salida");
-                    let departureDate = docuemtn.getElementById("fecha-salida");
-                    var returnDateLabel = document.getElementById("vuelta-label");
-                    var returnDateInput = document.getElementById("fecha-vuelta");
-                    let submitButton = document.getElementById("submit-button");
-                    let departureAirport = document.getElementById("dep_apt");
-                    let arrivalAirport = document.getElementById("arr_apt");
-                    let form = document.getElementById("search-form");
-
-                    function checkAirports() {
-                        if (departureAirport.value && arrivalAirport.value) {
-                            return true
-                        }
-                        return false
-                    }
-
-                    function checkDates() {
-                        if (returnDateInput.value && departureDateInput.value) {
-                            return true
-                        }
-                        return false
-                    }
-
-                    function checkFormValues() {
-                        if (checkAirports() && checkDates()) {
-                            submitButton.setAttribute("class", "search-button")
-                            submitButton.removeAttribute("disabled")
-                        }
-                        if (!checkAirports() || !checkDates()) {
-                            submitButton.setAttribute("class", "disabled-button")
-                            submitButton.setAttribute("disabled", true)
-                        }
-                        return
-                    }
-
-                    form.addEventListener("change", checkFormValues);
-
-                    oneWayRadio.addEventListener("change", function() {
-                        if (this.checked) {
-                            returnDateLabel.style.display = "none";
-                            returnDateInput.style.display = "none";
-                        }
-                    });
-
-                    var roundTripRadio = document.getElementById("round-trip");
-
-                    roundTripRadio.addEventListener("change", function() {
-                        if (this.checked) {
-                            returnDateLabel.style.display = "inline-block";
-                            returnDateInput.style.display = "inline-block";
-                        }
-                    });
-                </script>
             </form>
         </div>
     </div>
 </body>
+<script src="inicioVista.js"></script>
 
 </html>
