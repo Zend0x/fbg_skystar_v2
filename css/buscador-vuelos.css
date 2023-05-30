@@ -100,10 +100,15 @@ h1 {
   grid-column: 2;
   align-items: center;
   justify-content: center;
+  text-align: center;
 }
 
 .center-info img {
   height: 7rem;
+}
+
+.flight-number {
+  text-align: center;
 }
 
 .arrival-time {

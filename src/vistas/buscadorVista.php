@@ -12,10 +12,10 @@
     ini_set('html_errors', 1);
 
 
-    //require("../negocio/vuelosReglasNegocio.php");
+    require("../negocio/vuelosReglasNegocio.php");
 
-    //$vuelosBL=new VuelosReglasNegocio();
-    //$datosVuelos=$vuelosBL->obtener($_POST['dep_apt'],$_POST['arr_apt']);
+    $vuelosBL = new VuelosReglasNegocio();
+    $datosVuelos = $vuelosBL->obtener($_POST['dep_apt'], $_POST['arr_apt']);
     ?>
 </head>
 
@@ -32,71 +32,28 @@
         <div class="content">
             <div class="column"></div>
             <div class="main-column">
-                <div class="flight-card">
-                    <div class="departure-time">
-                        <h2>Salida</h2>
-                        <p>10:00 AM</p>
-                        <p>[apt salida]</p>
-                    </div>
-                    <div class="center-info">
-                        <img src="../../assets/airplane.png" alt="airplane">
-                        <p>[Departure time]</p>
-                    </div>
-                    <div class="arrival-time">
-                        <h2>Llegada</h2>
-                        <p>12:30 PM</p>
-                        <p>[apt llegada]</p>
-                        <p class="price">15€</p>
-                    </div>
-                </div>
-                <div class="flight-card">
-                    <div class="departure-time">
-                        <h2>Salida</h2>
-                        <p>10:00 AM</p>
-                        <p>[apt salida]</p>
-                    </div>
-                    <div class="center-info">
-                        <img src="../../assets/airplane.png" alt="airplane">
-                        <p>[Departure time]</p>
-                    </div>
-                    <div class="arrival-time">
-                        <h2>Llegada</h2>
-                        <p>12:30 PM</p>
-                        <p>[apt llegada]</p>
-                    </div>
-                </div>
-                <div class="flight-card">
-                    <div class="departure-time">
-                        <h2>Salida</h2>
-                        <p>10:00 AM</p>
-                        <p>[apt salida]</p>
-                    </div>
-                    <div class="center-info">
-                        <img src="../../assets/airplane.png" alt="airplane">
-                        <p>[Departure time]</p>
-                    </div>
-                    <div class="arrival-time">
-                        <h2>Llegada</h2>
-                        <p>12:30 PM</p>
-                        <p>[apt llegada]</p>
-                    </div>
-                </div>
-                <div class="flight-card">
-                    <div class="departure-time">
-                        <h2>Salida</h2>
-                        <p>10:00 AM</p>
-                        <p>[apt salida]</p>
-                    </div>
-                    <div class="center-info">
-                        <img src="../../assets/airplane.png" alt="airplane">
-                        <p>[Departure time]</p>
-                    </div>
-                    <div class="arrival-time">
-                        <h2>Llegada</h2>
-                        <p>12:30 PM</p>
-                        <p>[apt llegada]</p>
-                    </div>
-                </div>
+                <?php
+                foreach ($datosVuelos as $vuelo) {
+                    echo '<div class="flight-card">';
+                    echo '<div class="departure-time">';
+                    echo '<h2>Salida</h2>';
+                    echo '<p>' . $vuelo->getDepartureTime() . '</p>';
+                    echo '<p>' . $vuelo->getDeparture() . '</p>';
+                    echo '</div>';
+                    echo '<div class="center-info">';
+                    echo '<img src="../../assets/airplane.png" alt="airplane">';
+                    echo '<p class="flight-number">' . $vuelo->getFlightNum() . '</p>';
+                    echo '<input type="radio" id="flight-' . $vuelo->getFlightNum() . '" name="flight" value="' . $vuelo->getFlightNum() . '">';
+                    echo '</div>';
+                    echo '<div class="arrival-time">';
+                    echo '<h2>Llegada</h2>';
+                    echo '<p>' . $vuelo->getArrivalTime() . '</p>';
+                    echo '<p>' . $vuelo->getArrival() . '</p>';
+                    echo '<p class="price">' . rand(15, 50) . '€</p>';
+                    echo '</div>';
+                    echo '</div>';
+                }
+                ?>
             </div>
             <div class="column"></div>
         </div>
