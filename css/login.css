@@ -1,0 +1,64 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+html,
+body {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+body {
+  background-image: url("../assets/looking_outside_window.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-family: Arial, sans-serif;
+}
+
+.login-container {
+  width: 30%;
+  margin: 15rem auto;
+  padding: 20px;
+  background-color: rgba(128, 0, 128, 0.781);
+  border-radius: 5px;
+}
+
+.login-container h2 {
+  text-align: center;
+  color: white;
+}
+
+.login-container form {
+  margin-top: 20px;
+}
+
+.login-container input[type="text"],
+.login-container input[type="password"] {
+  width: 70%;
+  padding: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.login-container input[type="submit"] {
+  width: 70%;
+  padding: 10px;
+  background-color: #5e0e8f;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.login-container p {
+  text-align: center;
+  margin-top: 10px;
+  color: white;
+}
+
+.register-link {
+  text-align: center;
+  color: white;
+  text-decoration: underline;
+}
