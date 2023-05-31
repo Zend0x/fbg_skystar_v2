@@ -1,0 +1,63 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body,
+html {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+body {
+  background-image: url("../assets/passenger_getting_into_plane.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  font-family: Arial, sans-serif;
+}
+
+.register-container {
+  width: 30%;
+  margin: 5rem auto;
+  padding: 20px;
+  background-color: rgba(128, 0, 128, 0.781);
+  border-radius: 5px;
+}
+
+.register-container h2 {
+  text-align: center;
+  color: white;
+}
+
+.register-container form {
+  margin-top: 20px;
+}
+
+.register-container label {
+  display: block;
+  margin-bottom: 5px;
+  color: white;
+  text-align: center;
+}
+
+.register-container input[type="text"],
+.register-container input[type="password"],
+.register-container input[type="email"],
+.register-container input[type="tel"] {
+  width: 70%;
+  padding: 10px;
+  margin-bottom: 10px;
+  margin-left: 12%;
+  text-align: center;
+}
+
+.register-container input[type="submit"] {
+  width: 70%;
+  padding: 10px;
+  margin-left: 15%;
+  background-color: #5e0e8f;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
