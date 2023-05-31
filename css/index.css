@@ -35,6 +35,11 @@ h1 {
   align-items: center;
   margin-right: 1%;
 }
+
+.navbar-center img {
+  height: 100%;
+  margin-left: 5rem;
+}
 .login-button {
   padding: 10px 20px;
   background-color: white;

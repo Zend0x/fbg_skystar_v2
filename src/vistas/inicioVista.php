@@ -21,7 +21,7 @@
 <body>
     <nav class="navbar">
         <div class="navbar-center">
-            <span class="navbar-brand">Skystar Airways</span>
+            <span class="navbar-brand"><img src="../../assets/skystar2_logo_nobg.png" alt="" srcset=""></span>
         </div>
         <div class="navbar-right">
             <button class="login-button">Iniciar sesión</button>
