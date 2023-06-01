@@ -5,6 +5,14 @@
   <title>Página de Inicio de Sesión</title>
   <link rel="stylesheet" href="../../css/index.css">
   <link rel="stylesheet" type="text/css" href="../../css/login.css">
+  <?php
+  // if request type is post, it will check if the user exists in the database using the function "login()" frp, the usuarioReglasNegocio.php
+  if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    require_once '../reglasNegocio/usuarioReglasNegocio.php';
+    $usuarioRN = new UsuarioReglasNegocio();
+    $usuarioRN->login($_POST['username'], $_POST['password']);
+  }
+  ?>
 </head>
 
 <body>

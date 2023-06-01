@@ -5,7 +5,6 @@ ini_set('html_errors', 1);
 
 require("../infraestructura/usuarioAccesoDatos.php");
 
-// Una clase usuarioReglasNegocio con una función insertarUsuario que recibe los datos de un usuario y los inserta en la base de datos a través de la clase usuarioAccesoDatos
 class usuarioReglasNegocio
 {
     private $_USERNAME;
@@ -19,7 +18,6 @@ class usuarioReglasNegocio
     {
     }
 
-    //Crear función init a la que se le pasen los valores (username, nombre, apellidos, email, teléfono y luego se asocien a las variables privadas con un $this
     function init($username, $password, $nombre, $apellidos, $email, $telefono)
     {
         $this->_USERNAME = $username;
@@ -36,5 +34,13 @@ class usuarioReglasNegocio
         $usuarioDAL = new usuarioAccesoDatos();
         $usuarioDAL->insertarUsuario($username, $password, $nombre, $apellidos, $email, $telefono);
         var_dump($usuarioDAL);
+    }
+
+    function login($username, $hashedPassword)
+    {
+        $userDAL = new usuarioAccesoDatos();
+        $res = $userDAL->login($username, $hashedPassword);
+
+        return $res;
     }
 }

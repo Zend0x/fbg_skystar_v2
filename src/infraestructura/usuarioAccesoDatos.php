@@ -14,7 +14,6 @@ class usuarioAccesoDatos
     //Crear la función insertarUsuario que reciba los datos de un usuario y los inserte en la base de datos
     function insertarUsuario($username, $password, $nombre, $apellidos, $email, $telefono)
     {
-        //Conectar a la base de datos, verificar que los datos pasados por el usuario son seguros e insertarlos en la base de datos
         $conexion = mysqli_connect('localhost', 'root', '12345');
         var_dump($conexion);
         if (mysqli_connect_errno()) {
@@ -22,12 +21,31 @@ class usuarioAccesoDatos
         }
         mysqli_select_db($conexion, 'skystar_airways');
         $textoConsulta = "insert into users (username, password, nombre, apellidos, email, telefono) values (?,?,?,?,?,?);";
-        // Hashear la contraseña del usuario antes de meterla en la base de datos
         $hash = password_hash($password, PASSWORD_DEFAULT);
         $consulta = mysqli_prepare($conexion, $textoConsulta);
         $consulta->bind_param("ssssss", $username, $hash, $nombre, $apellidos, $email, $telefono);
+        $res = $consulta->execute();
+
+        return $res;
+    }
+
+    function login($username, $password)
+    {
+        $conexion = mysqli_connect('localhost', 'root', '12345');
+        if (mysqli_connect_errno()) {
+            echo 'Error al conectar a la base de datos.' . mysqli_connect_error();
+        }
+        mysqli_select_db($conexion, 'skystar_airways');
+        $textoConsulta = "select * from users where username = ?;";
+        $consulta = mysqli_prepare($conexion, $textoConsulta);
+        $consulta->bind_param("s", $username);
         $consulta->execute();
         $results = $consulta->get_result();
-        var_dump($results);
+        $row = $results->fetch_assoc();
+        if (password_verify($password, $row['password'])) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
