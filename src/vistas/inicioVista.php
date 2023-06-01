@@ -24,7 +24,7 @@
             <span class="navbar-brand"><img src="../../assets/skystar2_logo_nobg.png" alt="" srcset=""></span>
         </div>
         <div class="navbar-right">
-            <button class="login-button">Iniciar sesión</button>
+            <button class="login-button"><a href="loginVista.php">Iniciar sesión</a></button>
         </div>
     </nav>
     <div class="content">
