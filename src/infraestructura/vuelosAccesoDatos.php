@@ -11,7 +11,7 @@ class VuelosAccesoDatos
 
     function buscarVuelos($origen, $destino)
     {
-        $conexion = mysqli_connect('localhost', 'root', '12345');
+        $conexion = mysqli_connect('localhost', 'root', '1234');
         if (mysqli_connect_errno()) {
             echo 'Error al conectar a la base de datos.' . mysqli_connect_error();
         }
