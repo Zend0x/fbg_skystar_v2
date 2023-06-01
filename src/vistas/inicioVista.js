@@ -62,5 +62,3 @@ roundTripRadio.addEventListener("change", function () {
     returnDateInput.style.display = "inline-block";
   }
 });
-
-console.log('loaded')
