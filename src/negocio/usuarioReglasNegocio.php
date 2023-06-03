@@ -3,7 +3,7 @@
 ini_set('display_errors', 1);
 ini_set('html_errors', 1);
 
-require("../infraestructura/usuarioAccesoDatos.php");
+require_once("../infraestructura/usuarioAccesoDatos.php");
 
 class usuarioReglasNegocio
 {

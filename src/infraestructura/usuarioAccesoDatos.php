@@ -3,8 +3,6 @@
 ini_set('display_errors', 1);
 ini_set('html_errors', 1);
 
-require("../infraestructura/usuarioAccesoDatos.php");
-
 //Una clase usuarioAccesoDatos que se conecte a la base de datos y tenga una función insertarUsuario que reciba los datos de un usuario y los inserte en la base de datos
 class usuarioAccesoDatos
 {
@@ -31,7 +29,7 @@ class usuarioAccesoDatos
 
     function login($username, $password)
     {
-        $conexion = mysqli_connect('localhost', 'root', '12345');
+        $conexion = mysqli_connect('localhost', 'root', '1234');
         if (mysqli_connect_errno()) {
             echo 'Error al conectar a la base de datos.' . mysqli_connect_error();
         }
