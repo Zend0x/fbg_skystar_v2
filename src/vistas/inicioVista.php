@@ -24,7 +24,7 @@
             <span class="navbar-brand"><img src="../../assets/skystar2_logo_nobg.png" alt="" srcset=""></span>
         </div>
         <div class="navbar-right">
-            <button class="login-button"><a href="loginVista.php">Iniciar sesión</a></button>
+            <button class="login-button"><a href="loginVista.php" class="log-in">Iniciar sesión</a></button>
         </div>
     </nav>
     <div class="content">
@@ -45,6 +45,7 @@
                         }
                         ?>
                     </select>
+                    <button type="button" onclick="intercambiarValores()" class="interchange-airports"><img src="../../assets/arrow-left-right.svg" alt="change"></button>
                     <select name="arr_apt" id="arr_apt" onchange="selectValues('dep_apt',this.value)">
                         <option value="null" disabled selected>Seleccione un aeropuerto de llegada</option>
                         <?php
@@ -58,11 +59,11 @@
                     <div class="dep-arrival">
                         <div class="departure">
                             <label for="fecha-salida">Fecha de salida:</label><br>
-                            <input type="date" id="fecha-salida">
+                            <input type="date" id="fecha-salida" name="fecha-salida">
                         </div>
                         <div class="arrival">
                             <label for="fecha-llegada" id="vuelta-label">Fecha de vuelta:</label><br>
-                            <input type="date" id="fecha-vuelta">
+                            <input type="date" id="fecha-vuelta" name="fecha-vuelta">
                         </div>
                     </div>
                     <input id="submit-button" class="disabled-button" disabled type="submit" value="Buscar vuelos">

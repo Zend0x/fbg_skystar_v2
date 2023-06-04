@@ -62,3 +62,12 @@ roundTripRadio.addEventListener("change", function () {
     returnDateInput.style.display = "inline-block";
   }
 });
+
+function intercambiarValores() {
+  
+  var valorSelect1 = departureAirport.value;
+  var valorSelect2 = arrivalAirport.value;
+  
+  departureAirport.value = valorSelect2;
+  arrivalAirport.value = valorSelect1;
+}
