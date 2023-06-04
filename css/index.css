@@ -17,28 +17,25 @@ h1 {
   color: #fff;
   display: flex;
   justify-content: space-between;
-  height: 6%;
+  height: 100%;
 }
 .navbar-center {
+  height: 5rem;
   flex-grow: 1;
   text-align: center;
 }
 
-.navbar-brand {
-  font-size: 20px;
-  font-weight: bold;
-  margin-left: 5%;
-}
-
 .navbar-right {
   display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
   align-items: center;
   margin-right: 1%;
 }
-
-.navbar-center img {
+.navbar-brand img {
+  margin-top: 10rem;
+  margin-left: 3rem;
   height: 100%;
-  margin-left: 5rem;
 }
 .login-button {
   padding: 10px 20px;
@@ -72,12 +69,14 @@ form {
 }
 .trip-type {
   display: flex;
+  margin-top: 2rem;
 }
 
 .airport-selectors {
   display: flex;
-  justify-content: space-between;
+  align-items: center;
   margin-bottom: 10px;
+  margin-top: 2rem;
 }
 
 .date-selectors-search {
@@ -128,7 +127,7 @@ input[type="date"] {
 
 .search-button {
   padding: 10px;
-  background-color: #854cb4;
+  background-color: #550994;
   color: #fff;
   border: none;
   border-radius: 4px;
