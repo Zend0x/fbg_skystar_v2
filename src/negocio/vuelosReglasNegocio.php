@@ -53,10 +53,10 @@ class VuelosReglasNegocio
         return $this->_ARRIVALAPT;
     }
 
-    function obtener($origen, $destino)
+    function obtener($origen, $destino, $fecha)
     {
         $vuelosDAL = new VuelosAccesoDatos();
-        $rs = $vuelosDAL->buscarVuelos($origen, $destino);
+        $rs = $vuelosDAL->buscarVuelos($origen, $destino, $fecha);
         $datosVuelos = array();
         foreach ($rs as $vuelo) {
             $vuelosBL = new VuelosReglasNegocio();

@@ -13,9 +13,15 @@
 
 
     require("../negocio/vuelosReglasNegocio.php");
+    require("../negocio/aeropuertosReglasNegocio.php");
 
     $vuelosBL = new VuelosReglasNegocio();
-    $datosVuelos = $vuelosBL->obtener($_POST['dep_apt'], $_POST['arr_apt']);
+    $datosVuelos = $vuelosBL->obtener($_POST['dep_apt'], $_POST['arr_apt'], $_POST['fecha-salida']);
+    $datosVuelosVuelta = $vuelosBL->obtener($_POST['arr_apt'], $_POST['dep_apt'], $_POST['fecha-vuelta']);
+
+    $aeropuertosBL = new AeropuertosReglasNegocio();
+    $datosAeropuertoIda = $aeropuertosBL->obtener($_POST['dep_apt']);
+    $datosAeropuertoVuelta = $aeropuertosBL->obtener($_POST['arr_apt']);
     ?>
 </head>
 
@@ -38,6 +44,7 @@
                     echo '<div class="departure-time">';
                     echo '<h2>Salida</h2>';
                     echo '<p>' . $vuelo->getDepartureTime() . '</p>';
+                    // echo '<p>' . $datosAeropuertoIda->getName() . '</p>';
                     echo '<p>' . $vuelo->getDeparture() . '</p>';
                     echo '</div>';
                     echo '<div class="center-info">';
