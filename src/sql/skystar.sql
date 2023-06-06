@@ -11,7 +11,7 @@ create table airports(
 
 create table planes(
 	registryNum varchar(10) primary key,
-	brand ENUM('Airbus','Boeing','Embraer'),
+	brand ENUM('Airbus','Embraer'),
 	model varchar(100),
 	paxNum int(3)
 );
@@ -26,7 +26,9 @@ create table routes(
 );
 
 create table flights(
-	flightNum varchar(8) primary key,
+	id int(6) auto_increment primary key,
+	flightNum varchar(8),
+    date date,
 	departure time not null,
 	arrival time not null,
 	route int(6) not null,
@@ -46,25 +48,24 @@ create table users(
 create table reservations(
 	id int(6) primary key,
 	user varchar(15),
-	flight varchar(8),
+	flight int(6),
 	date date,
 	foreign key (user) references users(username),
-	foreign key (flight) references flights(flightNum)
+	foreign key (flight) references flights(id)
+);
+
+create table flightsReservations(
+	flightId int(6),
+	reservationId int(6),
+	primary key (flightId, reservationId),
+	foreign key (flightId) references flights(id),
+	foreign key (reservationid) references reservations(id)
 );
 
 insert into airports(icao,name)values('LEPA','Palma de Mallorca International');
 insert into airports(icao,name)values('LEMD','Aeropuerto de Madrid Barajas');
 
 insert into routes(id,origin,destination)values(1,'LEPA','LEMD');
-insert into flights(flightNum,departure,arrival,route)values('SST001','12:00','13:30',1);
-insert into flights(flightNum,departure,arrival,route)values('SST002','14:00:00','15:30',1);
-insert into flights(flightNum,departure,arrival,route)values('SST003','16:00:00','17:30',1);
-
-select * from flights;
-
-select flightNum,departure,route,
-(select origin from routes where origin='LEPA' and destination='LEMD') as departureApt,
-(select destination from routes where origin='LEPA' and destination='LEMD') as arrivalApt
-from flights where route=(select id from routes where origin='LEPA' and destination='LEMD');
-
-SELECT icao FROM airports;
+insert into flights(flightNum,date,departure,arrival,route)values('SST001',"2023-06-12",'12:00','13:30',1);
+insert into flights(flightNum,date,departure,arrival,route)values('SST001',"2023-06-13",'12:00','13:30',1);
+insert into flights(flightNum,date,departure,arrival,route)values('SST001',"2023-06-14",'12:00','13:30',1);
