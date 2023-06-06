@@ -6,11 +6,18 @@
   <link rel="stylesheet" href="../../css/index.css">
   <link rel="stylesheet" type="text/css" href="../../css/login.css">
   <?php
-  // if request type is post, it will check if the user exists in the database using the function "login()" frp, the usuarioReglasNegocio.php
+  $_badPass = false;
   if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    require_once '../reglasNegocio/usuarioReglasNegocio.php';
+    require('../negocio/usuarioReglasNegocio.php');
     $usuarioRN = new UsuarioReglasNegocio();
     $usuarioRN->login($_POST['username'], $_POST['password']);
+    if ($usuarioRN->login($_POST['username'], $_POST['password'])) {
+      session_start();
+      $_SESSION['username'] = $_POST['username'];
+      header('Location: inicioVista.php');
+    } else {
+      $_badPass = true;
+    }
   }
   ?>
 </head>
@@ -18,12 +25,17 @@
 <body>
   <div class="login-container">
     <h2>Iniciar Sesión</h2>
-    <form action="loginVista.php" method="$_POST">
-      <input type="text" placeholder="Usuario">
-      <input type="password" placeholder="Contraseña">
+    <form action="loginVista.php" method="POST">
+      <input type="text" placeholder="Usuario" name="username" autocomplete="off">
+      <input type="password" placeholder="Contraseña" name="password" autocomplete="off">
       <input type="submit" value="Iniciar Sesión">
     </form>
     <p><a class="register-link" href="createUser.php">Registrar</a></p>
+    <?php
+    if ($_badPass) {
+      echo "<p class='bad-pass'>Usuario o contraseña incorrectos</p>";
+    }
+    ?>
   </div>
 </body>
 

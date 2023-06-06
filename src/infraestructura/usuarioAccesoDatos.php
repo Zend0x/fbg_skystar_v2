@@ -18,7 +18,7 @@ class usuarioAccesoDatos
             echo 'Error al conectar a la base de datos.' . mysqli_connect_error();
         }
         mysqli_select_db($conexion, 'skystar_airways');
-        $textoConsulta = "insert into users (username, password, nombre, apellidos, email, telefono) values (?,?,?,?,?,?);";
+        $textoConsulta = "insert into users (username, password, name, surnames, email, phoneNum) values (?,?,?,?,?,?);";
         $hash = password_hash($password, PASSWORD_DEFAULT);
         $consulta = mysqli_prepare($conexion, $textoConsulta);
         $consulta->bind_param("ssssss", $username, $hash, $nombre, $apellidos, $email, $telefono);
@@ -29,18 +29,26 @@ class usuarioAccesoDatos
 
     function login($username, $password)
     {
-        $conexion = mysqli_connect('localhost', 'root', '1234');
+        $conexion = mysqli_connect('localhost', 'root', '12345');
         if (mysqli_connect_errno()) {
             echo 'Error al conectar a la base de datos.' . mysqli_connect_error();
         }
         mysqli_select_db($conexion, 'skystar_airways');
-        $textoConsulta = "select * from users where username = ?;";
+        $textoConsulta = "select username, password from users where username = ?;";
+        $sanitized_user = mysqli_real_escape_string($conexion, $username);
         $consulta = mysqli_prepare($conexion, $textoConsulta);
-        $consulta->bind_param("s", $username);
+        $consulta->bind_param("s", $sanitized_user);
         $consulta->execute();
         $results = $consulta->get_result();
-        $row = $results->fetch_assoc();
-        if (password_verify($password, $row['password'])) {
+        if ($results->num_rows == 0) {
+            return false;
+        }
+        if ($results->num_rows > 1) {
+            return false;
+        }
+        $myrow = $results->fetch_assoc();
+        $x = $myrow['password'];
+        if (password_verify($password, $x)) {
             return true;
         } else {
             return false;

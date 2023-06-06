@@ -39,6 +39,7 @@ create table flights(
 
 create table users(
 	username varchar(15) primary key,
+    password varchar(255),
 	name varchar(50),
 	surnames varchar(100),
 	email varchar(100),
@@ -66,6 +67,11 @@ insert into airports(icao,name)values('LEPA','Palma de Mallorca International');
 insert into airports(icao,name)values('LEMD','Aeropuerto de Madrid Barajas');
 
 insert into routes(id,origin,destination)values(1,'LEPA','LEMD');
+insert into flights(flightNum,date,departure,arrival,route)values('SST001',"2023-06-12",'12:00','13:30',1);
+insert into flights(flightNum,date,departure,arrival,route)values('SST001',"2023-06-12",'12:00','13:30',1);
+insert into flights(flightNum,date,departure,arrival,route)values('SST001',"2023-06-12",'12:00','13:30',1);
+insert into flights(flightNum,date,departure,arrival,route)values('SST001',"2023-06-12",'12:00','13:30',1);
+insert into flights(flightNum,date,departure,arrival,route)values('SST001',"2023-06-12",'12:00','13:30',1);
 insert into flights(flightNum,date,departure,arrival,route)values('SST001',"2023-06-12",'12:00','13:30',1);
 insert into flights(flightNum,date,departure,arrival,route)values('SST001',"2023-06-13",'12:00','13:30',1);
 insert into flights(flightNum,date,departure,arrival,route)values('SST001',"2023-06-14",'12:00','13:30',1);
