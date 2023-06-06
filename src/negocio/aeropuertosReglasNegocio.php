@@ -16,9 +16,10 @@ class AeropuertosReglasNegocio
     {
     }
 
-    function init($icao)
+    function init($icao, $name)
     {
         $this->_ICAO = $icao;
+        $this->_NAME = $name;
     }
     function fullInit($icao, $name, $city, $country)
     {
@@ -52,7 +53,7 @@ class AeropuertosReglasNegocio
         $datosAeropuertos = array();
         foreach ($rs as $aeropuerto) {
             $aeropuertosBL = new AeropuertosReglasNegocio();
-            $aeropuertosBL->init($aeropuerto['icao']);
+            $aeropuertosBL->init($aeropuerto['icao'], $aeropuerto['name']);
             array_push($datosAeropuertos, $aeropuertosBL);
         }
         return $datosAeropuertos;

@@ -43,7 +43,7 @@
                             <option value="null" disabled selected>Seleccione un aeropuerto de salida</option>
                             <?php
                             foreach ($datosAeropuertos as $aeropuerto) {
-                                echo '<option value="' . $aeropuerto->getICAO() . '" >' . $aeropuerto->getICAO() . '</option>';
+                                echo '<option value="' . $aeropuerto->getICAO() . '" >' . $aeropuerto->getName() . '</option>';
                             }
                             ?>
                         </select>
@@ -52,7 +52,7 @@
                             <option value="null" disabled selected>Seleccione un aeropuerto de llegada</option>
                             <?php
                             foreach ($datosAeropuertos as $aeropuerto) {
-                                echo '<option value="' . $aeropuerto->getICAO() . '">' . $aeropuerto->getICAO() . '</option>';
+                                echo '<option value="' . $aeropuerto->getICAO() . '">' . $aeropuerto->getName() . '</option>';
                             }
                             ?>
                         </select>
@@ -79,6 +79,7 @@
                 echo '<button class="login-button"><a href="loginVista.php" class="log-in">Iniciar sesión</a></button>';
             } else if ($sessionActive) {
                 echo '<p>Bienvenido, ' . $_SESSION['username'] . '</p>';
+                echo '<A href="logoutVista.php" class="log-out">Cerrar sesión</A>';
             }
             ?>
         </div>

@@ -1,7 +1,9 @@
-html,
-body {
+* {
   padding: 0;
   margin: 0;
+}
+html,
+body {
   height: 100%;
   width: 100%;
 }
@@ -27,11 +29,10 @@ h1 {
 }
 
 .navbar-right {
-  display: flex;
-  flex-direction: column;
   margin-top: 1rem;
   align-items: center;
   margin-right: 1%;
+  width: 7.4rem;
 }
 .navbar-brand img {
   margin-top: 10rem;
@@ -50,6 +51,10 @@ h1 {
 .log-in:visited {
   color: #854cb4;
   text-decoration: none;
+}
+.log-out:link,
+.log-out:visited {
+  color: white;
 }
 .login-button:hover {
   background-color: rgb(236, 236, 236);
@@ -73,6 +78,12 @@ form {
   margin-top: 2rem;
 }
 
+.trip-type label {
+  display: inline-block;
+  cursor: pointer;
+  margin-left: 8px;
+}
+
 .airport-selectors {
   display: flex;
   align-items: center;
@@ -86,6 +97,17 @@ form {
   align-items: center;
   margin-bottom: 10px;
   width: 100%;
+}
+
+.date-selectors-search label {
+  display: inline-block;
+  margin-left: 8px;
+  margin-bottom: 0.1rem;
+}
+.date-selectors-search input[type="date"] {
+  border: none;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .dep-arrival {
