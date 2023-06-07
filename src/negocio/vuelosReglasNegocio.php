@@ -7,6 +7,7 @@ require("../infraestructura/vuelosAccesoDatos.php");
 
 class VuelosReglasNegocio
 {
+    private $_ID;
     private $_FLIGHTNUM;
     private $_DEPARTURE;
     private $_ARRIVAL;
@@ -18,7 +19,17 @@ class VuelosReglasNegocio
     {
     }
 
-    function init($flightnumber, $departure, $arrival, $route, $departureApt, $arrivalApt)
+    function init($id, $flightnumber, $departure, $arrival, $route, $departureApt, $arrivalApt)
+    {
+        $this->_ID = $id;
+        $this->_FLIGHTNUM = $flightnumber;
+        $this->_DEPARTURE = $departure;
+        $this->_ARRIVAL = $arrival;
+        $this->_ROUTE = $route;
+        $this->_DEPARTUREAPT = $departureApt;
+        $this->_ARRIVALAPT = $arrivalApt;
+    }
+    function init_insert($flightnumber, $departure, $arrival, $route, $departureApt, $arrivalApt)
     {
         $this->_FLIGHTNUM = $flightnumber;
         $this->_DEPARTURE = $departure;
@@ -26,6 +37,11 @@ class VuelosReglasNegocio
         $this->_ROUTE = $route;
         $this->_DEPARTUREAPT = $departureApt;
         $this->_ARRIVALAPT = $arrivalApt;
+    }
+
+    function getId()
+    {
+        return $this->_ID;
     }
 
     function getFlightNum()
@@ -60,7 +76,7 @@ class VuelosReglasNegocio
         $datosVuelos = array();
         foreach ($rs as $vuelo) {
             $vuelosBL = new VuelosReglasNegocio();
-            $vuelosBL->init($vuelo['flightNum'], $vuelo['departure'], $vuelo['arrival'], $vuelo['route'], $vuelo['departureApt'], $vuelo['arrivalApt']);
+            $vuelosBL->init($vuelo['id'], $vuelo['flightNum'], $vuelo['departure'], $vuelo['arrival'], $vuelo['route'], $vuelo['departureApt'], $vuelo['arrivalApt']);
             array_push($datosVuelos, $vuelosBL);
         }
         return $datosVuelos;
@@ -73,7 +89,7 @@ class VuelosReglasNegocio
         $datosVuelos = array();
         foreach ($rs as $vuelo) {
             $vuelosBL = new VuelosReglasNegocio();
-            $vuelosBL->init($vuelo['flightNum'], $vuelo['departure'], $vuelo['arrival'], $vuelo['route'], $vuelo['departureApt'], $vuelo['arrivalApt']);
+            $vuelosBL->init_insert($vuelo['flightNum'], $vuelo['departure'], $vuelo['arrival'], $vuelo['route'], $vuelo['departureApt'], $vuelo['arrivalApt']);
             array_push($datosVuelos, $vuelosBL);
         }
         return $datosVuelos;

@@ -16,7 +16,7 @@
     require("../negocio/aeropuertosReglasNegocio.php");
 
     $vuelosBL = new VuelosReglasNegocio();
-    $datosVuelos = $vuelosBL->obtener($_POST['dep_apt'], $_POST['arr_apt'], $_POST['fecha-salida']);
+    $datosVuelosIda = $vuelosBL->obtener($_POST['dep_apt'], $_POST['arr_apt'], $_POST['fecha-salida']);
     $datosVuelosVuelta = $vuelosBL->obtener($_POST['arr_apt'], $_POST['dep_apt'], $_POST['fecha-vuelta']);
 
     $aeropuertosBL = new AeropuertosReglasNegocio();
@@ -38,33 +38,72 @@
         <div class="content">
             <div class="column"></div>
             <div class="main-column">
-                <?php
-                foreach ($datosVuelos as $vuelo) {
-                    echo '<div class="flight-card">';
-                    echo '<div class="departure-time">';
-                    echo '<h2>Salida</h2>';
-                    echo '<p>' . $vuelo->getDepartureTime() . '</p>';
-                    // echo '<p>' . $datosAeropuertoIda->getName() . '</p>';
-                    echo '<p>' . $vuelo->getDeparture() . '</p>';
-                    echo '</div>';
-                    echo '<div class="center-info">';
-                    echo '<img src="../../assets/airplane.png" alt="airplane">';
-                    echo '<p class="flight-number">' . $vuelo->getFlightNum() . '</p>';
-                    echo '<input type="radio" id="flight-' . $vuelo->getFlightNum() . '" name="flight" value="' . $vuelo->getFlightNum() . '">';
-                    echo '</div>';
-                    echo '<div class="arrival-time">';
-                    echo '<h2>Llegada</h2>';
-                    echo '<p>' . $vuelo->getArrivalTime() . '</p>';
-                    echo '<p>' . $vuelo->getArrival() . '</p>';
-                    echo '<p class="price">' . rand(15, 50) . '€</p>';
-                    echo '</div>';
-                    echo '</div>';
-                }
-                ?>
+                <form id="flight-selection-form" action="reservaVista.php" method="post">
+                    <input type="radio" id="flight-ida" name="flight-type" value="ida" checked>
+                    <label for="flight-ida">Vuelo de Ida</label>
+
+                    <input type="radio" id="flight-vuelta" name="flight-type" value="vuelta">
+                    <label for="flight-vuelta">Vuelo de Vuelta</label>
+
+                    <div id="vuelos-ida">
+                        <?php
+                        foreach ($datosVuelosIda as $vuelo) {
+                            echo '<div class="flight-card ida">';
+                            echo '<div class="departure-time">';
+                            echo '<h2>Salida</h2>';
+                            echo '<p>' . $vuelo->getDepartureTime() . '</p>';
+                            // echo '<p>' . $datosAeropuertoIda->getName() . '</p>';
+                            echo '<p>' . $vuelo->getDeparture() . '</p>';
+                            echo '</div>';
+                            echo '<div class="center-info">';
+                            echo '<img src="../../assets/airplane.png" alt="airplane">';
+                            echo '<p class="flight-number">' . $vuelo->getFlightNum() . '</p>';
+                            echo '<input type="radio" id="flight-' . $vuelo->getFlightNum() . '" name="vuelo-ida" value="' . $vuelo->getId() . '">';
+                            echo '</div>';
+                            echo '<div class="arrival-time">';
+                            echo '<h2>Llegada</h2>';
+                            echo '<p>' . $vuelo->getArrivalTime() . '</p>';
+                            echo '<p>' . $vuelo->getArrival() . '</p>';
+                            echo '<p class="price">' . rand(15, 50) . '€</p>';
+                            echo '</div>';
+                            echo '</div>';
+                        }
+                        ?>
+                    </div>
+                    <div id="vuelos-vuelta" style="display: none;">
+                        <?php
+                        foreach ($datosVuelosVuelta as $vuelo) {
+                            echo '<div class="flight-card vuelta">';
+                            echo '<div class="departure-time">';
+                            echo '<h2>Salida</h2>';
+                            echo '<p>' . $vuelo->getDepartureTime() . '</p>';
+                            // echo '<p>' . $datosAeropuertoIda->getName() . '</p>';
+                            echo '<p>' . $vuelo->getDeparture() . '</p>';
+                            echo '</div>';
+                            echo '<div class="center-info">';
+                            echo '<img src="../../assets/airplane.png" alt="airplane">';
+                            echo '<p class="flight-number">' . $vuelo->getFlightNum() . '</p>';
+                            echo '<input type="radio" id="flight-' . $vuelo->getFlightNum() . '" name="vuelo-vuelta" value="' . $vuelo->getId() . '">';
+                            echo '</div>';
+                            echo '<div class="arrival-time">';
+                            echo '<h2>Llegada</h2>';
+                            echo '<p>' . $vuelo->getArrivalTime() . '</p>';
+                            echo '<p>' . $vuelo->getArrival() . '</p>';
+                            echo '<p class="price">' . rand(15, 50) . '€</p>';
+                            echo '</div>';
+                            echo '</div>';
+                        }
+                        ?>
+                    </div>
+                    <input type="hidden" name="vuelo-ida" id="vuelo-ida" value="">
+                    <button type="submit" id="next-button" class="submit-button" disabled>Siguiente</button>
+                </form>
+
             </div>
             <div class="column"></div>
         </div>
     </div>
 </body>
+<script src="buscadorVista.js"></script>
 
 </html>

@@ -1,10 +1,12 @@
+* {
+  padding: 0;
+  margin: 0;
+}
 body,
 html {
   font-family: Arial, sans-serif;
   height: 100%;
   width: 100%;
-  padding: 0;
-  margin: 0;
 }
 h1 {
   text-align: center;
@@ -12,6 +14,8 @@ h1 {
 .container {
   height: 100%;
   width: 100%;
+  background-image: url("../assets/registan_square.jpg");
+  background-size: cover;
 }
 .navbar {
   background-color: #854cb4;
@@ -55,23 +59,20 @@ h1 {
 
 .content {
   height: 94%;
-  background-image: url("../assets/registan_square.jpg");
-  background-size: cover;
   overflow-y: auto;
+  background-color: #854cb44f;
 }
 
 .column {
   width: 10%;
   height: 100%;
   float: left;
-  background-color: #854cb44f;
 }
 
 .main-column {
   width: 80%;
   height: 100%;
   float: left;
-  background-color: #854cb44f;
 }
 
 .flight-option {
@@ -99,6 +100,12 @@ h1 {
 .departure-time {
   grid-column: 1;
 }
+.departure-time p {
+  margin-bottom: 5%;
+}
+.departure-time h2 {
+  margin-bottom: 5%;
+}
 
 .center-info {
   grid-column: 2;
@@ -120,17 +127,30 @@ h1 {
   text-align: right;
 }
 
+.arrival-time p {
+  margin-bottom: 5%;
+}
+.arrival-time h2 {
+  margin-bottom: 5%;
+}
+
 .price {
   font-weight: bolder;
   font-size: x-large;
-}
-
-.flight-card h2 {
-  margin-bottom: 10px;
 }
 
 .departure-time,
 .arrival-time {
   font-weight: 500;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+.submit-button {
+  padding: 10px 20px;
+  background-color: white;
+  color: #854cb4;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 45%;
+  margin-top: 1%;
 }
