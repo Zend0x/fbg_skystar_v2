@@ -67,6 +67,8 @@ insert into airports(icao,name)values('LEPA','Palma de Mallorca International');
 insert into airports(icao,name)values('LEMD','Aeropuerto de Madrid Barajas');
 
 insert into routes(id,origin,destination)values(1,'LEPA','LEMD');
+insert into routes(id,origin,destination)values(2,'LEMD','LEPA');
+
 insert into flights(flightNum,date,departure,arrival,route)values('SST001',"2023-06-12",'12:00','13:30',1);
 insert into flights(flightNum,date,departure,arrival,route)values('SST001',"2023-06-12",'12:00','13:30',1);
 insert into flights(flightNum,date,departure,arrival,route)values('SST001',"2023-06-12",'12:00','13:30',1);
@@ -75,3 +77,7 @@ insert into flights(flightNum,date,departure,arrival,route)values('SST001',"2023
 insert into flights(flightNum,date,departure,arrival,route)values('SST001',"2023-06-12",'12:00','13:30',1);
 insert into flights(flightNum,date,departure,arrival,route)values('SST001',"2023-06-13",'12:00','13:30',1);
 insert into flights(flightNum,date,departure,arrival,route)values('SST001',"2023-06-14",'12:00','13:30',1);
+
+
+insert into flights(flightNum,date,departure,arrival,route)values('SST002',"2023-06-13",'14:30','16:00',2);
+
