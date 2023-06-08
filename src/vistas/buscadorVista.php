@@ -50,23 +50,26 @@
                     <div id="vuelos-ida">
                         <?php
                         foreach ($datosVuelosIda as $vuelo) {
+                            $precio = rand(15, 50);
                             echo '<div class="flight-card ida">';
                             echo '<div class="departure-time">';
                             echo '<h2>Salida</h2>';
                             echo '<p>' . $vuelo->getDepartureTime() . '</p>';
-                            // echo '<p>' . $datosAeropuertoIda->getName() . '</p>';
                             echo '<p>' . $vuelo->getDeparture() . '</p>';
+                            echo '<p>' . $vuelo->getFlightNum() . '</p>';
+                            echo '<input style="display:none;" type="radio" id="flight-' . $vuelo->getFlightNum() . '" name="vuelo-ida" value="' . $vuelo->getId() . '">';
                             echo '</div>';
                             echo '<div class="center-info">';
                             echo '<img src="../../assets/airplane.png" alt="airplane">';
-                            echo '<p class="flight-number">' . $vuelo->getFlightNum() . '</p>';
-                            echo '<input style="display:none;" type="radio" id="flight-' . $vuelo->getFlightNum() . '" name="vuelo-ida" value="' . $vuelo->getId() . '">';
+                            echo '<p>' . $vuelo->getDate() . '</p>';
+                            echo '<input type="hidden" name="fecha-ida" value="' . $vuelo->getDate() . '">';
                             echo '</div>';
                             echo '<div class="arrival-time">';
                             echo '<h2>Llegada</h2>';
                             echo '<p>' . $vuelo->getArrivalTime() . '</p>';
                             echo '<p>' . $vuelo->getArrival() . '</p>';
-                            echo '<p class="price">' . rand(15, 50) . '€</p>';
+                            echo '<p class="price">' . $precio . '€</p>';
+                            echo '<input type="hidden" name="precio-ida" value="' . $precio . '">';
                             echo '</div>';
                             echo '</div>';
                         }
@@ -75,23 +78,26 @@
                     <div id="vuelos-vuelta" style="display: none;">
                         <?php
                         foreach ($datosVuelosVuelta as $vuelo) {
+                            $precio = rand(15, 50);
                             echo '<div class="flight-card vuelta">';
                             echo '<div class="departure-time">';
                             echo '<h2>Salida</h2>';
                             echo '<p>' . $vuelo->getDepartureTime() . '</p>';
-                            // echo '<p>' . $datosAeropuertoIda->getName() . '</p>';
                             echo '<p>' . $vuelo->getDeparture() . '</p>';
+                            echo '<p>' . $vuelo->getFlightNum() . '</p>';
+                            echo '<input style="display:none;" type="radio" id="flight-' . $vuelo->getFlightNum() . '" name="vuelo-vuelta" value="' . $vuelo->getId() . '">';
                             echo '</div>';
                             echo '<div class="center-info">';
                             echo '<img src="../../assets/airplane.png" alt="airplane">';
-                            echo '<p class="flight-number">' . $vuelo->getFlightNum() . '</p>';
-                            echo '<input style="display:none;" type="radio" id="flight-' . $vuelo->getFlightNum() . '" name="vuelo-vuelta" value="' . $vuelo->getId() . '">';
+                            echo '<p>' . $vuelo->getDate() . '</p>';
+                            echo '<input type="hidden" name="fecha-vuelta" value="' . $vuelo->getDate() . '">';
                             echo '</div>';
                             echo '<div class="arrival-time">';
                             echo '<h2>Llegada</h2>';
                             echo '<p>' . $vuelo->getArrivalTime() . '</p>';
                             echo '<p>' . $vuelo->getArrival() . '</p>';
-                            echo '<p class="price">' . rand(15, 50) . '€</p>';
+                            echo '<p class="price">' . $precio . '€</p>';
+                            echo '<input type="hidden" name="precio-vuelta" value="' . $precio . '">';
                             echo '</div>';
                             echo '</div>';
                         }
