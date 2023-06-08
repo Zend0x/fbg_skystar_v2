@@ -66,8 +66,8 @@ create table flightsReservations(
 
 insert into airports(icao,name)values('LEPA','Palma de Mallorca International');
 insert into airports(icao,name)values('LEMD','Aeropuerto de Madrid Barajas');
-insert into airports(icao,name)values('UTTT','Tashkent International Airport Islam Karimov');
-insert into airports(icao,name)values('VHHH','Hong Kong Chek Lap Kok International Airport');
+insert into airports(icao,name)values('UTTT','Tashkent Yuzhny Airport');
+insert into airports(icao,name)values('VHHH','Hong Kong International Airport');
 insert into airports(icao,name)values('EDDF','Frankfurt Airport');
 insert into airports(icao,name)values('RKSI','Seoul-Incheon International Airport');
 
