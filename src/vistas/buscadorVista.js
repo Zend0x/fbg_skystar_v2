@@ -59,12 +59,3 @@ for (let i = 0; i < flightCards.length; i++) {
 }
 
 const formElement = document.getElementById('flight-selection-form');
-
-formElement.addEventListener('submit', function(event) {
-  event.preventDefault();
-
-  const vueloVueltaSeleccionado = document.querySelector('input[name="flight-vuelta"]:checked').value;
-
-  console.log('Vuelo de ida seleccionado:', vueloIdaSeleccionado);
-  console.log('Vuelo de vuelta seleccionado:', vueloVueltaSeleccionado);
-});
