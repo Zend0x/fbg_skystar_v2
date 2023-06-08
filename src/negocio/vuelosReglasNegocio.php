@@ -9,6 +9,7 @@ class VuelosReglasNegocio
 {
     private $_ID;
     private $_FLIGHTNUM;
+    private $_DATE;
     private $_DEPARTURE;
     private $_ARRIVAL;
     private $_ROUTE;
@@ -19,10 +20,11 @@ class VuelosReglasNegocio
     {
     }
 
-    function init($id, $flightnumber, $departure, $arrival, $route, $departureApt, $arrivalApt)
+    function init($id, $flightnumber, $date, $departure, $arrival, $route, $departureApt, $arrivalApt)
     {
         $this->_ID = $id;
         $this->_FLIGHTNUM = $flightnumber;
+        $this->_DATE = $date;
         $this->_DEPARTURE = $departure;
         $this->_ARRIVAL = $arrival;
         $this->_ROUTE = $route;
@@ -47,6 +49,10 @@ class VuelosReglasNegocio
     function getFlightNum()
     {
         return $this->_FLIGHTNUM;
+    }
+    function getDate()
+    {
+        return $this->_DATE;
     }
     function getDepartureTime()
     {
@@ -76,7 +82,7 @@ class VuelosReglasNegocio
         $datosVuelos = array();
         foreach ($rs as $vuelo) {
             $vuelosBL = new VuelosReglasNegocio();
-            $vuelosBL->init($vuelo['id'], $vuelo['flightNum'], $vuelo['departure'], $vuelo['arrival'], $vuelo['route'], $vuelo['departureApt'], $vuelo['arrivalApt']);
+            $vuelosBL->init($vuelo['id'], $vuelo['date'], $vuelo['flightNum'], $vuelo['departure'], $vuelo['arrival'], $vuelo['route'], $vuelo['departureApt'], $vuelo['arrivalApt']);
             array_push($datosVuelos, $vuelosBL);
         }
         return $datosVuelos;
