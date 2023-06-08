@@ -39,11 +39,13 @@
             <div class="column"></div>
             <div class="main-column">
                 <form id="flight-selection-form" action="reservaVista.php" method="post">
-                    <input type="radio" id="flight-ida" name="flight-type" value="ida" checked>
-                    <label for="flight-ida">Vuelo de Ida</label>
+                    <div class="leg-selector">
+                        <input type="radio" id="flight-ida" name="flight-type" value="ida" checked>
+                        <label for="flight-ida">Vuelo de Ida</label>
 
-                    <input type="radio" id="flight-vuelta" name="flight-type" value="vuelta">
-                    <label for="flight-vuelta">Vuelo de Vuelta</label>
+                        <input type="radio" id="flight-vuelta" name="flight-type" value="vuelta">
+                        <label for="flight-vuelta">Vuelo de Vuelta</label>
+                    </div>
 
                     <div id="vuelos-ida">
                         <?php
@@ -58,7 +60,7 @@
                             echo '<div class="center-info">';
                             echo '<img src="../../assets/airplane.png" alt="airplane">';
                             echo '<p class="flight-number">' . $vuelo->getFlightNum() . '</p>';
-                            echo '<input type="radio" id="flight-' . $vuelo->getFlightNum() . '" name="vuelo-ida" value="' . $vuelo->getId() . '">';
+                            echo '<input style="display:none;" type="radio" id="flight-' . $vuelo->getFlightNum() . '" name="vuelo-ida" value="' . $vuelo->getId() . '">';
                             echo '</div>';
                             echo '<div class="arrival-time">';
                             echo '<h2>Llegada</h2>';
@@ -83,7 +85,7 @@
                             echo '<div class="center-info">';
                             echo '<img src="../../assets/airplane.png" alt="airplane">';
                             echo '<p class="flight-number">' . $vuelo->getFlightNum() . '</p>';
-                            echo '<input type="radio" id="flight-' . $vuelo->getFlightNum() . '" name="vuelo-vuelta" value="' . $vuelo->getId() . '">';
+                            echo '<input style="display:none;" type="radio" id="flight-' . $vuelo->getFlightNum() . '" name="vuelo-vuelta" value="' . $vuelo->getId() . '">';
                             echo '</div>';
                             echo '<div class="arrival-time">';
                             echo '<h2>Llegada</h2>';
@@ -96,7 +98,7 @@
                         ?>
                     </div>
                     <input type="hidden" name="vuelo-ida" id="vuelo-ida" value="">
-                    <button type="submit" id="next-button" class="submit-button" disabled>Siguiente</button>
+                    <button type="submit" id="next-button" class="submit-button">Siguiente</button>
                 </form>
 
             </div>

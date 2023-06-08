@@ -96,6 +96,12 @@ h1 {
   grid-template-rows: 10rem;
   grid-gap: 10px;
 }
+.flight-card:hover {
+  cursor: pointer;
+  background-color: rgba(246, 235, 252, 0.795);
+  background-color: rgb(239, 205, 255);
+  transition: 0.5s;
+}
 
 .departure-time {
   grid-column: 1;
@@ -153,4 +159,37 @@ h1 {
   cursor: pointer;
   margin-left: 45%;
   margin-top: 1%;
+  margin-bottom: 2%;
+}
+.leg-selector {
+  width: fit-content;
+  border: 1px solid #ffffff;
+  background-color: #854cb4;
+  color: white;
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: no-wrap;
+  margin-left: 40%;
+  margin-top: 1%;
+}
+.leg-selector input {
+  display: none;
+}
+.leg-selector label {
+  font-family: sans-serif;
+  padding: 10px 16px;
+  border-right: 1px solid #ccc;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.leg-selector label:last-of-type {
+  border-right: 0;
+}
+.leg-selector label:hover {
+  background: #ebdcf8;
+}
+.leg-selector input:checked + label {
+  background: #dec5f3;
 }
