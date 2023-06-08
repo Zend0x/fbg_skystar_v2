@@ -138,6 +138,16 @@ input[type="date"] {
 .interchange-airports:hover {
   cursor: pointer;
 }
+
+.disabled-button {
+  padding: 10px;
+  background-color: #a8a8a8;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: not-allowed;
+}
+
 .search-button {
   padding: 10px;
   background-color: #550994;
