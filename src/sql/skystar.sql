@@ -47,10 +47,11 @@ create table users(
 );
 
 create table reservations(
-	id int(6) primary key,
+	id int(6) primary key auto_increment,
 	user varchar(15),
 	flight int(6),
 	date date,
+    price int(4),
 	foreign key (user) references users(username),
 	foreign key (flight) references flights(id)
 );
@@ -65,19 +66,25 @@ create table flightsReservations(
 
 insert into airports(icao,name)values('LEPA','Palma de Mallorca International');
 insert into airports(icao,name)values('LEMD','Aeropuerto de Madrid Barajas');
+insert into airports(icao,name)values('UTTT','Tashkent International Airport Islam Karimov');
+insert into airports(icao,name)values('VHHH','Hong Kong Chek Lap Kok International Airport');
+insert into airports(icao,name)values('EDDF','Frankfurt Airport');
+insert into airports(icao,name)values('RKSI','Seoul-Incheon International Airport');
 
 insert into routes(id,origin,destination)values(1,'LEPA','LEMD');
 insert into routes(id,origin,destination)values(2,'LEMD','LEPA');
+insert into routes(id,origin,destination)values(3,'LEMD','VHHH');
+insert into routes(id,origin,destination)values(4,'LEPA','EDDF');
+insert into routes(id,origin,destination)values(5,'LEMD','RKSI');
+insert into routes(id,origin,destination)values(6,'LEPA','UTTT');
+insert into routes(id,origin,destination)values(7,'UTTT','LEPA');
 
 insert into flights(flightNum,date,departure,arrival,route)values('SST001',"2023-06-12",'12:00','13:30',1);
-insert into flights(flightNum,date,departure,arrival,route)values('SST001',"2023-06-12",'12:00','13:30',1);
-insert into flights(flightNum,date,departure,arrival,route)values('SST001',"2023-06-12",'12:00','13:30',1);
-insert into flights(flightNum,date,departure,arrival,route)values('SST001',"2023-06-12",'12:00','13:30',1);
-insert into flights(flightNum,date,departure,arrival,route)values('SST001',"2023-06-12",'12:00','13:30',1);
-insert into flights(flightNum,date,departure,arrival,route)values('SST001',"2023-06-12",'12:00','13:30',1);
-insert into flights(flightNum,date,departure,arrival,route)values('SST001',"2023-06-13",'12:00','13:30',1);
-insert into flights(flightNum,date,departure,arrival,route)values('SST001',"2023-06-14",'12:00','13:30',1);
-
+insert into flights(flightNum,date,departure,arrival,route)values('SST002',"2023-06-12",'14:30','16:00',2);
+insert into flights(flightNum,date,departure,arrival,route)values('SST003',"2023-06-12",'17:00','18:30',1);
+insert into flights(flightNum,date,departure,arrival,route)values('SST005',"2023-06-12",'19:30','21:00',2);
+insert into flights(flightNum,date,departure,arrival,route)values('SST641',"2023-06-26",'12:00','06:00',6);
+insert into flights(flightNum,date,departure,arrival,route)values('SST642',"2023-06-27",'12:00','19:00',7);
 
 insert into flights(flightNum,date,departure,arrival,route)values('SST002',"2023-06-13",'14:30','16:00',2);
 
