@@ -39,7 +39,7 @@
                         <label for="round-trip">Ida y vuelta</label>
                     </div>
                     <div class="airport-selectors">
-                        <select name="dep_apt" id="dep_apt" onchange="selectValues('arr_apt',this.value)">
+                        <select name="dep_apt" id="dep_apt" onchange="selectValues('arr_apt',this.value)" class="apt-selector">
                             <option value="null" disabled selected>Seleccione un aeropuerto de salida</option>
                             <?php
                             foreach ($datosAeropuertos as $aeropuerto) {
@@ -48,7 +48,7 @@
                             ?>
                         </select>
                         <button type="button" onclick="intercambiarValores()" class="interchange-airports"><img src="../../assets/arrow-left-right.svg" alt="change"></button>
-                        <select name="arr_apt" id="arr_apt" onchange="selectValues('dep_apt',this.value)">
+                        <select name="arr_apt" id="arr_apt" onchange="selectValues('dep_apt',this.value)" class="apt-selector">
                             <option value="null" disabled selected>Seleccione un aeropuerto de llegada</option>
                             <?php
                             foreach ($datosAeropuertos as $aeropuerto) {

@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+
 var oneWayRadio = document.getElementById("one-way");
 let departureDateInput = document.getElementById("fecha-salida");
 let departureDate = document.getElementById("fecha-salida");
@@ -72,4 +72,3 @@ function intercambiarValores() {
   departureAirport.value = valorSelect2;
   arrivalAirport.value = valorSelect1;
 }
-});

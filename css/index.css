@@ -109,6 +109,10 @@ form {
   padding: 0.5rem;
   margin-bottom: 0.5rem;
 }
+.apt-selector {
+  min-width: 20%;
+  max-width: 50%;
+}
 
 .dep-arrival {
   float: left;
