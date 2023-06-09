@@ -3,13 +3,11 @@
 ini_set('display_errors', 1);
 ini_set('html_errors', 1);
 
-//Una clase usuarioAccesoDatos que se conecte a la base de datos y tenga una función insertarUsuario que reciba los datos de un usuario y los inserte en la base de datos
 class usuarioAccesoDatos
 {
     function __construct()
     {
     }
-    //Crear la función insertarUsuario que reciba los datos de un usuario y los inserte en la base de datos
     function insertarUsuario($username, $password, $nombre, $apellidos, $email, $telefono)
     {
         $conexion = mysqli_connect('localhost', 'root', '12345');
@@ -21,7 +19,12 @@ class usuarioAccesoDatos
         $textoConsulta = "insert into users (username, password, name, surnames, email, phoneNum) values (?,?,?,?,?,?);";
         $hash = password_hash($password, PASSWORD_DEFAULT);
         $consulta = mysqli_prepare($conexion, $textoConsulta);
-        $consulta->bind_param("ssssss", $username, $hash, $nombre, $apellidos, $email, $telefono);
+        $usernameSanitized = mysqli_real_escape_string($conexion, $username);
+        $nombreSanitized = mysqli_real_escape_string($conexion, $nombre);
+        $apellidosSanitized = mysqli_real_escape_string($conexion, $apellidos);
+        $emailSanitized = mysqli_real_escape_string($conexion, $email);
+        $telefonoSanitized = mysqli_real_escape_string($conexion, $telefono);
+        $consulta->bind_param("ssssss", $usernameSanitized, $hash, $nombreSanitized, $apellidosSanitized, $emailSanitized, $telefonoSanitized);
         $res = $consulta->execute();
 
         return $res;
