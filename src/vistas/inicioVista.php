@@ -7,6 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../../css/index.css">
     <title>Skystar Airways</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
     <?php
     ini_set('display_errors', 1);
     ini_set('html_errors', 1);
@@ -29,7 +32,7 @@
 <body>
     <nav class="navbar">
         <div class="navbar-center">
-            <span class="navbar-brand"><img src="../../assets/skystar2_logo_nobg.png" alt=""></span>
+            <span class="navbar-brand"><img src="../../assets/skystar_airways.png" alt="" draggable="false"></span>
             <div class="search">
                 <form action="buscadorVista.php" method="post" id="search-form" onchange="checkFormValues()">
                     <div class="trip-type">
@@ -85,8 +88,62 @@
         </div>
     </nav>
     <div class="content">
-
+        <h1 class="content-title">¿A dónde quieres volar?</h1>
+        <div class="grid-container">
+            <div class="card-title">
+                <h3 class="title">Hong Kong</h3>
+                <div class="card">
+                    <img class="background-image" src="../../assets/hongkong_vic_harb.jpg" alt="Imagen 1">
+                    <div class="content">
+                        <h3>Desde 400€</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="card-title">
+                <h3 class="title">Seúl, Corea del Sur</h3>
+                <div class="card">
+                    <img class="background-image" src="../../assets/nandaemum.webp" alt="Imagen 2">
+                    <div class="content">
+                        <h3>Desde 500€</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="card-title">
+                <h3 class="title">Tashkent, Uzbekistán</h3>
+                <div class="card">
+                    <img class="background-image" src="../../assets/hazrat_imam_toshkent.jpg" alt="Imagen 3">
+                    <div class="content">
+                        <h3 class="ozbecha">Desde 250€</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+    <section class="information-section">
+        <div class="information-container">
+            <div class="information-column">
+                <h4>La compañía</h4>
+                <p><a class="information-link" href="flotaVista.php">Flota</a></p>
+                <p>Compromiso</p>
+                <p>Empleo</p>
+            </div>
+            <div class="information-column">
+                <h4><a class="information-link" href="aboutUsVista.php">Sobre Nosotros</a></h4>
+                <p><a class="information-link" href="aboutUsVista.php">Conoce más sobre nuestra aerolínea y nuestra historia.</a></p>
+            </div>
+            <div class="information-column">
+                <h4><a class="information-link" href="contactoVista.php">Contacto</a></h4>
+                <p><a class="information-link" href="contactoVista.php">Encuentra nuestras formas de contacto y atención al cliente.</a></p>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="footer-content">
+            <img src="../../assets/skystar_airways.png" alt="Logo de la compañía">
+            <p>SkyStar Airways - Copyright Fernando Buendía Galindo 2023</p>
+        </div>
+
+    </footer>
 </body>
 <script src="inicioVista.js"></script>
 

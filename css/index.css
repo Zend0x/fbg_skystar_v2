@@ -1,14 +1,12 @@
 * {
   padding: 0;
   margin: 0;
+  font-family: "Poppins", sans-serif;
 }
 html,
 body {
   height: 100%;
   width: 100%;
-}
-body {
-  font-family: Arial, sans-serif;
 }
 
 h1 {
@@ -20,9 +18,10 @@ h1 {
   display: flex;
   justify-content: space-between;
   height: 100%;
+  width: 100%;
 }
 .navbar-center {
-  height: 5rem;
+  height: 100%;
   flex-grow: 1;
   text-align: center;
   margin-left: 5rem;
@@ -32,12 +31,12 @@ h1 {
   margin-top: 1rem;
   align-items: center;
   margin-right: 1%;
-  width: 7.4rem;
+  width: 10%;
 }
 .navbar-brand img {
   margin-top: 10rem;
   margin-left: 3rem;
-  height: 100%;
+  height: 30%;
 }
 .login-button {
   padding: 10px 20px;
@@ -60,28 +59,51 @@ h1 {
   background-color: rgb(236, 236, 236);
   transition: 0.5s;
 }
-.content {
-  height: 100%;
-  width: 100%;
-  background-image: url("../assets/taipei_panorama.jpg");
-  background-size: cover;
-}
-form {
-  max-width: 800px;
-  margin: 0 auto;
+
+.trip-type {
+  width: fit-content;
+  border: 1px solid #ffffff;
+  background-color: #854cb4;
+  color: white;
+  border-radius: 4px;
+  overflow: hidden;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
+  flex-wrap: no-wrap;
+  margin-left: 40%;
+  margin-top: 1%;
+}
+.trip-type input {
+  display: none;
+}
+.trip-type label {
+  font-family: sans-serif;
+  padding: 10px 16px;
+  border-right: 1px solid #ccc;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.trip-type label:last-of-type {
+  border-right: 0;
+}
+.trip-type label:hover {
+  background: #ebdcf8;
+}
+.trip-type input:checked + label {
+  background: #dec5f3;
+}
+
+form {
+  width: 60%;
+  margin: 0 auto;
 }
 .trip-type {
-  display: flex;
   margin-top: 2rem;
 }
 
 .trip-type label {
   display: inline-block;
   cursor: pointer;
-  margin-left: 8px;
 }
 
 .airport-selectors {
@@ -93,7 +115,7 @@ form {
 
 .date-selectors-search {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   margin-bottom: 10px;
   width: 100%;
@@ -110,8 +132,8 @@ form {
   margin-bottom: 0.5rem;
 }
 .apt-selector {
-  min-width: 20%;
-  max-width: 50%;
+  width: 100%;
+  height: 2rem;
 }
 
 .dep-arrival {
@@ -120,10 +142,6 @@ form {
 
 .search-button {
   float: right;
-}
-
-label {
-  margin-right: 10px;
 }
 
 select,
@@ -159,4 +177,111 @@ input[type="date"] {
   border: none;
   border-radius: 4px;
   cursor: pointer;
+}
+
+.title {
+  text-align: center;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  margin: 0 auto;
+  margin-top: 2rem;
+  max-width: 800px;
+  padding-bottom: 2rem;
+}
+
+.card {
+  position: relative;
+  border-radius: 5px;
+  overflow: hidden;
+  height: 10rem;
+}
+
+.card .background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.7;
+  z-index: -1;
+}
+
+.card .content {
+  padding: 20px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+.card .content {
+  padding: 20px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.card h3 {
+  margin-top: 10px;
+  font-size: 18px;
+  text-align: right;
+  margin-top: 7rem;
+  color: black;
+}
+
+.information-section {
+  background-color: #f9f9f9;
+  padding: 40px 20px;
+}
+
+.information-container {
+  display: flex;
+  justify-content: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.information-column {
+  flex-basis: 33.33%;
+  padding: 0 10px;
+  text-align: left;
+}
+
+.information-link:link,
+.information-link:visited {
+  color: black;
+  text-decoration: none;
+}
+
+.information-column h4 {
+  margin-bottom: 10px;
+}
+
+.information-column p {
+  font-size: 14px;
+}
+
+footer {
+  height: 5%;
+  padding: 20px;
+  background-color: #854cb4;
+  color: white;
+}
+
+.footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+.footer-content img {
+  width: 12%;
+  height: 7%;
+  margin-right: 20px;
+  padding-bottom: 10px;
 }
