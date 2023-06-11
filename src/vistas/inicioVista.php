@@ -34,7 +34,7 @@
         <div class="navbar-center">
             <span class="navbar-brand"><img src="../../assets/skystar_airways.png" alt="" draggable="false"></span>
             <div class="search">
-                <form action="buscadorVista.php" method="post" id="search-form" onchange="checkFormValues()">
+                <form action="buscadorVista.php" method="post" id="search-form">
                     <div class="trip-type">
                         <input type="radio" name="trip-type" id="one-way" id="one-way" value="oneway">
                         <label for="one-way">Solo ida</label>
@@ -42,7 +42,7 @@
                         <label for="round-trip">Ida y vuelta</label>
                     </div>
                     <div class="airport-selectors">
-                        <select name="dep_apt" id="dep_apt" onchange="selectValues('arr_apt',this.value)" class="apt-selector">
+                        <select name="dep_apt" id="dep_apt" onchange="selectValues('arr_apt',this.value)" class="apt-selector" required>
                             <option value="null" disabled selected>Seleccione un aeropuerto de salida</option>
                             <?php
                             foreach ($datosAeropuertos as $aeropuerto) {
@@ -51,7 +51,7 @@
                             ?>
                         </select>
                         <button type="button" onclick="intercambiarValores()" class="interchange-airports"><img src="../../assets/arrow-left-right.svg" alt="change"></button>
-                        <select name="arr_apt" id="arr_apt" onchange="selectValues('dep_apt',this.value)" class="apt-selector">
+                        <select name="arr_apt" id="arr_apt" onchange="selectValues('dep_apt',this.value)" class="apt-selector" required>
                             <option value="null" disabled selected>Seleccione un aeropuerto de llegada</option>
                             <?php
                             foreach ($datosAeropuertos as $aeropuerto) {
@@ -64,11 +64,11 @@
                         <div class="dep-arrival">
                             <div class="departure">
                                 <label for="fecha-salida">Fecha de salida:</label><br>
-                                <input type="date" id="fecha-salida" name="fecha-salida">
+                                <input type="date" id="fecha-salida" name="fecha-salida" required>
                             </div>
                             <div class="arrival">
                                 <label for="fecha-llegada" id="vuelta-label">Fecha de vuelta:</label><br>
-                                <input type="date" id="fecha-vuelta" name="fecha-vuelta">
+                                <input type="date" id="fecha-vuelta" name="fecha-vuelta" required>
                             </div>
                         </div>
                         <input id="submit-button" class="search-button" type="submit" value="Buscar vuelos">
