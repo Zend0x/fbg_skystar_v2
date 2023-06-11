@@ -4,6 +4,7 @@
 <head>
   <title>Página de Inicio de Sesión</title>
   <link rel="stylesheet" href="../../css/index.css">
+  <link rel="shortcut icon" href="../../assets/favicons/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" type="text/css" href="../../css/login.css">
   <?php
   $_badPass = false;
