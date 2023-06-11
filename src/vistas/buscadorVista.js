@@ -1,4 +1,3 @@
-// Obtener referencias a los elementos
 const vueloIdaRadio = document.getElementById('flight-ida');
 const vueloVueltaRadio = document.getElementById('flight-vuelta');
 const vueloIdaInputs = document.querySelectorAll('input[name="vuelo-ida"]');
