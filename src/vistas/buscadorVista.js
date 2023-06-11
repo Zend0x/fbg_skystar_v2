@@ -1,61 +1,63 @@
-const idaContainer = document.getElementById('vuelos-ida');
-const vueltaContainer = document.getElementById('vuelos-vuelta');
-
-const flightCards = document.getElementsByClassName('flight-card');
-
-console.log(idaContainer);
-
-const selectedFlightInput = document.getElementById('vuelo-ida');
-let vueloIdaSeleccionado = '';
-
+// Obtener referencias a los elementos
+const vueloIdaRadio = document.getElementById('flight-ida');
+const vueloVueltaRadio = document.getElementById('flight-vuelta');
+const vueloIdaInputs = document.querySelectorAll('input[name="vuelo-ida"]');
+const vueloVueltaInputs = document.querySelectorAll('input[name="vuelo-vuelta"]');
+const vueloIdaInput = document.getElementById('vuelo-ida');
+const vueloVueltaSelect = document.getElementById('vuelo-vuelta');
 const nextButton = document.getElementById('next-button');
 
-function handleFlightSelection(event) {
-  vueloIdaSeleccionado = event.target.value;
-  selectedFlightInput.value = vueloIdaSeleccionado;
+vueloIdaRadio.addEventListener('change', mostrarVuelosIda);
+vueloVueltaRadio.addEventListener('change', mostrarVuelosVuelta);
 
-  nextButton.disabled = false;
+function mostrarVuelosIda() {
+    document.getElementById('vuelos-ida').style.display = 'block';
+    document.getElementById('vuelos-vuelta').style.display = 'none';
+    vueloVueltaSelect.required = false;
 }
 
-const radioButtonsIda = document.querySelectorAll('.ida input[type="radio"]');
-
-radioButtonsIda.forEach(function(radioButton) {
-  radioButton.addEventListener('change', handleFlightSelection);
-});
-
-function handleFlightTypeChange(event) {
-  const selectedType = event.target.value;
-
-  if (selectedType === 'ida') {
-    idaContainer.style.display = 'block';
-    vueltaContainer.style.display = 'none';
-  } else if (selectedType === 'vuelta') {
-    idaContainer.style.display = 'none';
-    vueltaContainer.style.display = 'block';
-  }
+function mostrarVuelosVuelta() {
+    document.getElementById('vuelos-ida').style.display = 'none';
+    document.getElementById('vuelos-vuelta').style.display = 'block';
+    vueloVueltaSelect.required = true;
 }
 
-const flightTypeRadios = document.querySelectorAll('input[name="flight-type"]');
-
-flightTypeRadios.forEach(function(radioButton) {
-  radioButton.addEventListener('change', handleFlightTypeChange);
+const vuelosIdaCards = document.querySelectorAll('#vuelos-ida .flight-card.ida');
+vuelosIdaCards.forEach(card => {
+    card.addEventListener('click', seleccionarVueloIda);
 });
 
-for (let i = 0; i < flightCards.length; i++) {
-  const flightCard = flightCards[i];
+const vuelosVueltaCards = document.querySelectorAll('#vuelos-vuelta .flight-card.vuelta');
+vuelosVueltaCards.forEach(card => {
+    card.addEventListener('click', seleccionarVueloVuelta);
+});
 
-  const radioButton = flightCard.querySelector('input[type="radio"]');
+function seleccionarVueloIda(event) {
+    const vueloIdaSeleccionado = event.currentTarget.querySelector('input[name="vuelo-ida"]');
+    vueloIdaSeleccionado.checked = true;
+}
+function seleccionarVueloVuelta(event) {
+    const vueloVueltaSeleccionado = event.currentTarget.querySelector('input[name="vuelo-vuelta"]');
+    vueloVueltaSeleccionado.checked = true;
+}
+nextButton.addEventListener('click', guardarSeleccion);
 
-  flightCard.addEventListener('click', () => {
-    radioButton.checked = true;
-    handleFlightSelection({ target: radioButton });
-    flightCard.style.backgroundColor = 'rgb(239, 205, 255)';
-  });
-  radioButton.addEventListener('change', function() {
-    if (!this.checked) {
-      flightCard.style.backgroundColor = 'rgba(255, 255, 255, 0.795)';
+function guardarSeleccion() {
+    let vueloIdaSeleccionado = '';
+    let vueloVueltaSeleccionado = '';
+
+    for (let i = 0; i < vueloIdaInputs.length; i++) {
+        if (vueloIdaInputs[i].checked) {
+            vueloIdaSeleccionado = vueloIdaInputs[i].value;
+            break;
+        }
     }
-  });
+    for (let i = 0; i < vueloVueltaInputs.length; i++) {
+        if (vueloVueltaInputs[i].checked) {
+            vueloVueltaSeleccionado = vueloVueltaInputs[i].value;
+            break;
+        }
+    }
+    vueloIdaInput.value = vueloIdaSeleccionado;
+    vueloVueltaSelect.value = vueloVueltaSeleccionado;
 }
-
-const formElement = document.getElementById('flight-selection-form');
