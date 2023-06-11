@@ -25,7 +25,7 @@
     <div class="container">
         <nav class="navbar">
             <div class="navbar-center">
-                <span class="navbar-brand"><a href="inicioVista.php"><img src="../../assets/skystar2_logo_nobg.png" alt="" srcset=""></a></span>
+                <span class="navbar-brand"><a href="inicioVista.php"><img src="../../assets/skystar_airways.png" alt="" srcset=""></a></span>
             </div>
             <div class="navbar-right">
                 <button class="login-button">Iniciar sesión</button>
