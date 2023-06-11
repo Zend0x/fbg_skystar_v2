@@ -20,7 +20,6 @@
     $aeropuertoBL = new AeropuertosReglasNegocio();
     $datosAeropuertos = $aeropuertoBL->obtener();
 
-    // check if there is a session active. if yes, put variable "sessionActive" on "true"
     session_start();
     if (isset($_SESSION['username'])) {
         $sessionActive = true;
@@ -82,7 +81,7 @@
             if (!$sessionActive) {
                 echo '<button class="login-button"><a href="loginVista.php" class="log-in">Iniciar sesión</a></button>';
             } else if ($sessionActive) {
-                echo '<p>Bienvenido, ' . $_SESSION['username'] . '</p>';
+                echo '<p>Bienvenido, <a href="perfilVista.php">' . $_SESSION['username'] . '</a></p>';
                 echo '<A href="logoutVista.php" class="log-out">Cerrar sesión</A>';
             }
             ?>
