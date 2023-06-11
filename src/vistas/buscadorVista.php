@@ -18,10 +18,6 @@
     $vuelosBL = new VuelosReglasNegocio();
     $datosVuelosIda = $vuelosBL->obtener($_POST['dep_apt'], $_POST['arr_apt'], $_POST['fecha-salida']);
     $datosVuelosVuelta = $vuelosBL->obtener($_POST['arr_apt'], $_POST['dep_apt'], $_POST['fecha-vuelta']);
-
-    $aeropuertosBL = new AeropuertosReglasNegocio();
-    $datosAeropuertoIda = $aeropuertosBL->obtener($_POST['dep_apt']);
-    $datosAeropuertoVuelta = $aeropuertosBL->obtener($_POST['arr_apt']);
     ?>
 </head>
 
@@ -62,7 +58,7 @@
                             echo '<div class="center-info">';
                             echo '<img src="../../assets/airplane.png" alt="airplane">';
                             echo '<p>' . $vuelo->getDate() . '</p>';
-                            echo '<input type="hidden" name="fecha-ida" value="' . $vuelo->getDate() . '">';
+                            echo '<input type="hidden" name="fecha-ida" value="' . $vuelo->getFlightNum() . '">';
                             echo '</div>';
                             echo '<div class="arrival-time">';
                             echo '<h2>Llegada</h2>';
@@ -90,7 +86,7 @@
                             echo '<div class="center-info">';
                             echo '<img src="../../assets/airplane.png" alt="airplane">';
                             echo '<p>' . $vuelo->getDate() . '</p>';
-                            echo '<input type="hidden" name="fecha-vuelta" value="' . $vuelo->getDate() . '">';
+                            echo '<input type="hidden" name="fecha-vuelta" value="' . $vuelo->getFlightNum() . '">';
                             echo '</div>';
                             echo '<div class="arrival-time">';
                             echo '<h2>Llegada</h2>';
