@@ -88,3 +88,8 @@ insert into flights(flightNum,date,departure,arrival,route)values('SST642',"2023
 
 insert into flights(flightNum,date,departure,arrival,route)values('SST002',"2023-06-13",'14:30','16:00',2);
 
+SELECT f.id, f.flightNum, f.date, f.departure, f.arrival, f.route, r1.origin AS departureApt, r1.destination AS arrivalApt
+FROM flights f
+JOIN routes r1 ON f.route = r1.id
+JOIN routes r2 ON r1.origin = r2.origin AND r1.destination = r2.destination
+WHERE f.date LIKE '2023-06-12' AND r2.origin = 'LEPA' AND r2.destination = 'LEMD';
