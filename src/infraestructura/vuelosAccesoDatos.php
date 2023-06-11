@@ -54,4 +54,29 @@ class VuelosAccesoDatos
         }
         return $aeropuertos;
     }
+
+    function buscarPorID($id)
+    {
+        $conexion = mysqli_connect('localhost', 'root', '12345');
+        if (mysqli_connect_errno()) {
+            echo 'Error al conectar a la base de datos.' . mysqli_connect_error();
+        }
+        mysqli_select_db($conexion, 'skystar_airways');
+        $query = "SELECT flights.flightNum, flights.date, flights.departure, flights.arrival, 
+        departure_airports.name AS departureApt, arrival_airports.name AS arrivalApt
+        FROM flights
+        JOIN routes ON routes.id = flights.route
+        JOIN airports AS departure_airports ON departure_airports.ICAO = routes.origin
+        JOIN airports AS arrival_airports ON arrival_airports.ICAO = routes.destination
+        WHERE flights.id = (?);";
+        $consulta = mysqli_prepare($conexion, $query);
+        $consulta->bind_param("i", $id);
+        $consulta->execute();
+        $results = $consulta->get_result();
+        $vuelo = array();
+        while ($myrow = $results->fetch_assoc()) {
+            array_push($vuelo, $myrow);
+        }
+        return $vuelo;
+    }
 }

@@ -40,6 +40,19 @@ class VuelosReglasNegocio
         $this->_DEPARTUREAPT = $departureApt;
         $this->_ARRIVALAPT = $arrivalApt;
     }
+    function init_datos($flightNum, $date, $departure, $arrival, $aptDeparture, $aptArrival)
+    {
+        $this->_FLIGHTNUM = $flightNum;
+        $this->_DATE = $date;
+        $this->_DEPARTURE = $departure;
+        $this->_ARRIVAL = $arrival;
+        $this->_DEPARTUREAPT = $aptDeparture;
+        $this->_ARRIVALAPT = $aptArrival;
+    }
+    function init_id($id)
+    {
+        $this->_ID = $id;
+    }
 
     function getId()
     {
@@ -96,6 +109,18 @@ class VuelosReglasNegocio
         foreach ($rs as $vuelo) {
             $vuelosBL = new VuelosReglasNegocio();
             $vuelosBL->init_insert($vuelo['flightNum'], $vuelo['departure'], $vuelo['arrival'], $vuelo['route'], $vuelo['departureApt'], $vuelo['arrivalApt']);
+            array_push($datosVuelos, $vuelosBL);
+        }
+        return $datosVuelos;
+    }
+    function buscarPorID($id)
+    {
+        $vuelosDAL = new VuelosAccesoDatos();
+        $rs = $vuelosDAL->buscarPorID($id);
+        $datosVuelos = array();
+        foreach ($rs as $vuelo) {
+            $vuelosBL = new VuelosReglasNegocio();
+            $vuelosBL->init_datos($vuelo['flightNum'], $vuelo['date'], $vuelo['departure'], $vuelo['arrival'], $vuelo['departureApt'], $vuelo['arrivalApt']);
             array_push($datosVuelos, $vuelosBL);
         }
         return $datosVuelos;
