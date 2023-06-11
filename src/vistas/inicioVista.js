@@ -25,6 +25,7 @@ oneWayRadio.addEventListener("change", function () {
   if (this.checked) {
     returnDateLabel.style.display = "none";
     returnDateInput.style.display = "none";
+    returnDateInput.removeAttribute("required");
   }
 });
 
@@ -34,6 +35,7 @@ roundTripRadio.addEventListener("change", function () {
   if (this.checked) {
     returnDateLabel.style.display = "inline-block";
     returnDateInput.style.display = "inline-block";
+    returnDateInput.setAttribute("required", "");
   }
 });
 
