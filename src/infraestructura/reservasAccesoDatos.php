@@ -26,4 +26,29 @@ class reservasAccesoDatos
 
         return $lastInsertId;
     }
+
+    function getById($username)
+    {
+        $conexion = mysqli_connect('localhost', 'root', '12345');
+        if (mysqli_connect_errno()) {
+            echo 'Error al conectar a la base de datos.' . mysqli_connect_error();
+        }
+        mysqli_select_db($conexion, 'skystar_airways');
+        $textoConsulta = "SELECT res.id, res.user, res.flight, res.date, res.price, a1.name AS origin_airport, a2.name AS destination_airport
+        FROM reservations res
+        JOIN flights f ON res.flight = f.id
+        JOIN routes r ON f.route = r.id
+        JOIN airports a1 ON r.origin = a1.icao
+        JOIN airports a2 ON r.destination = a2.icao
+        WHERE res.user = (?);";
+        $consulta = mysqli_prepare($conexion, $textoConsulta);
+        $consulta->bind_param("s", $username);
+        $consulta->execute();
+        $res = $consulta->get_result();
+        $reservas = array();
+        while ($row = mysqli_fetch_assoc($res)) {
+            $reservas[] = $row;
+        }
+        return $reservas;
+    }
 }

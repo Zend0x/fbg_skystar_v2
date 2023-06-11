@@ -27,6 +27,10 @@ class reservaReglasNegocio
     {
         $this->_ID = $id;
     }
+    function init_searchUser($user)
+    {
+        $this->_USERNAME = $user;
+    }
     function getFlightID()
     {
         return $this->_FLIGHTID;
@@ -48,6 +52,12 @@ class reservaReglasNegocio
     {
         $reservasDAL = new reservasAccesoDatos();
         $rs = $reservasDAL->insertar($this->_FLIGHTID, $this->_USERNAME, $this->_DATE, $this->_PRICE);
+        return $rs;
+    }
+    function getById()
+    {
+        $reservasDAL = new reservasAccesoDatos();
+        $rs = $reservasDAL->getById($this->_USERNAME);
         return $rs;
     }
 }

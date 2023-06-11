@@ -11,9 +11,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
     <?php
+    session_start();
     // if (!isset($_SESSION['usuario'])) {
     //     header("Location: loginVista.php");
     // }
+    require("../negocio/reservasReglasNegocio.php");
+    $reservation = new reservaReglasNegocio();
+    $reservation->init_searchUser($_SESSION['username']);
+    $reservationList = $reservation->getById();
     ?>
 </head>
 
@@ -45,7 +50,26 @@
             </div>
             <div id="reservas">
                 <h2>Mis Reservas</h2>
-                <!-- Aquí puedes mostrar las reservas del usuario -->
+                <?php
+                // foreach of $reservationList, print each format in a card list
+                foreach ($reservationList as $reservation) {
+                    echo '<div class="card">
+                    <div class="card-header">
+                        <span class="flight-number">' . $reservation['flight'] . '</span>
+                        <span class="flight-date">' . $reservation['date'] . '</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="flight-info">
+                            <span class="flight-origin">' . $reservation['origin_airport'] . '</span>
+                            <span class="flight-destination">' . $reservation['destination_airport'] . '</span>
+                        </div>
+                        <div class="flight-price">
+                            <span class="flight-price-label">Precio:</span>
+                            <span class="flight-price-value">' . $reservation['price'] . '</span>
+                        </div>
+                    </div>';
+                }
+                ?>
             </div>
         </div>
     </div>
