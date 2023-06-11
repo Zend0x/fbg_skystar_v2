@@ -74,7 +74,7 @@
                             echo '<p>' . $vuelo->getDepartureTime() . '</p>';
                             echo '<p>' . $vuelo->getDeparture() . '</p>';
                             echo '<p>' . $vuelo->getFlightNum() . '</p>';
-                            echo '<input style="display:none;" type="radio" id="flight-' . $vuelo->getFlightNum() . '" name="vuelo-ida" value="' . $vuelo->getId() . '">';
+                            echo '<input type="radio" id="flight-ida" name="vuelo-ida" value="' . $vuelo->getId() . '">';
                             echo '</div>';
                             echo '<div class="center-info">';
                             echo '<img src="../../assets/airplane.png" alt="airplane">';

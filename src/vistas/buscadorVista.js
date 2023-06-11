@@ -7,8 +7,9 @@ const vueloVueltaSelect = document.getElementById('vuelo-vuelta');
 const nextButton = document.getElementById('next-button');
 
 vueloIdaRadio.addEventListener('change', mostrarVuelosIda);
-vueloVueltaRadio.addEventListener('change', mostrarVuelosVuelta);
-
+if(vueloVueltaRadio){
+    vueloVueltaRadio.addEventListener('change', mostrarVuelosVuelta);
+}
 function mostrarVuelosIda() {
     document.getElementById('vuelos-ida').style.display = 'block';
     document.getElementById('vuelos-vuelta').style.display = 'none';
