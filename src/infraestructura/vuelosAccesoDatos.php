@@ -16,12 +16,13 @@ class VuelosAccesoDatos
             echo 'Error al conectar a la base de datos.' . mysqli_connect_error();
         }
         mysqli_select_db($conexion, 'skystar_airways');
-        $textoConsulta = "select id,flightNum,date,departure,arrival,route,
-        (select origin from routes where origin=(?) and destination=(?)) as departureApt,
-        (select destination from routes where origin=(?) and destination=(?)) as arrivalApt
-        from flights where date LIKE (?) AND route=(select id from routes where origin=(?) and destination=(?));";
+        $textoConsulta = 'SELECT f.id, f.flightNum, f.date, f.departure, f.arrival, f.route, r1.origin AS departureApt, r1.destination AS arrivalApt
+        FROM flights f
+        JOIN routes r1 ON f.route = r1.id
+        JOIN routes r2 ON r1.origin = r2.origin AND r1.destination = r2.destination
+        WHERE f.date LIKE (?) AND r2.origin = (?) AND r2.destination = (?);';
         $consulta = mysqli_prepare($conexion, $textoConsulta);
-        $consulta->bind_param("sssssss", $origen, $destino, $origen, $destino, $fecha, $origen, $destino);
+        $consulta->bind_param("sss", $fecha, $origen, $destino);
         $consulta->execute();
         $results = $consulta->get_result();
 
@@ -32,8 +33,6 @@ class VuelosAccesoDatos
         }
         return $aeropuertos;
     }
-
-    // funcion de insertarVuelos con parámetros de origen y destino
 
     function insertarVuelos($origen, $destino)
     {
