@@ -52,14 +52,18 @@
             <div class="column"></div>
             <div class="main-column">
                 <form id="flight-selection-form" action="reservaVista.php" method="post">
-                    <div class="leg-selector">
-                        <input type="radio" id="flight-ida" name="flight-type" value="ida" checked>
-                        <label for="flight-ida">Vuelo de Ida</label>
-
-                        <input type="radio" id="flight-vuelta" name="flight-type" value="vuelta">
-                        <label for="flight-vuelta">Vuelo de Vuelta</label>
-                    </div>
-
+                    <?php
+                    if ($_POST['fecha-vuelta'] != "") {
+                        echo '
+                        <div class="leg-selector">
+                            <input type="radio" id="flight-ida" name="flight-type" value="ida" checked>
+                            <label for="flight-ida">Vuelo de Ida</label>
+    
+                            <input type="radio" id="flight-vuelta" name="flight-type" value="vuelta">
+                            <label for="flight-vuelta">Vuelo de Vuelta</label>
+                        </div>';
+                    }
+                    ?>
                     <div id="vuelos-ida">
                         <?php
                         foreach ($datosVuelosIda as $vuelo) {
