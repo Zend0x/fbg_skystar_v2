@@ -33,6 +33,7 @@ create table flights(
 	arrival time not null,
 	route int(6) not null,
 	plane varchar(10),
+    flightDuration time,
 	foreign key (route) references routes(id),
 	foreign key (plane) references planes(registryNum)
 );
@@ -79,15 +80,17 @@ insert into routes(id,origin,destination)values(5,'LEMD','RKSI');
 insert into routes(id,origin,destination)values(6,'LEPA','UTTT');
 insert into routes(id,origin,destination)values(7,'UTTT','LEPA');
 
-insert into flights(flightNum,date,departure,arrival,route)values('SST001',"2023-06-12",'12:00','13:30',1);
-insert into flights(flightNum,date,departure,arrival,route)values('SST002',"2023-06-12",'14:30','16:00',2);
-insert into flights(flightNum,date,departure,arrival,route)values('SST003',"2023-06-12",'17:00','18:30',1);
-insert into flights(flightNum,date,departure,arrival,route)values('SST005',"2023-06-12",'19:30','21:00',2);
-insert into flights(flightNum,date,departure,arrival,route)values('SST641',"2023-06-26",'12:00','06:00',6);
-insert into flights(flightNum,date,departure,arrival,route)values('SST642',"2023-06-27",'12:00','19:00',7);
+insert into flights(flightNum,date,departure,arrival,route,flightDuration)values('SST001',"2023-06-12",'12:00','13:30',1,'01:30');
+insert into flights(flightNum,date,departure,arrival,route,flightDuration)values('SST002',"2023-06-12",'14:30','16:00',2,'01:30');
+insert into flights(flightNum,date,departure,arrival,route,flightDuration)values('SST003',"2023-06-12",'17:00','18:30',1,'01:30');
+insert into flights(flightNum,date,departure,arrival,route,flightDuration)values('SST005',"2023-06-12",'19:30','21:00',2,'01:30');
+insert into flights(flightNum,date,departure,arrival,route,flightDuration)values('SST641',"2023-06-26",'12:00','06:00',6,'12:30');
+insert into flights(flightNum,date,departure,arrival,route,flightDuration)values('SST642',"2023-06-27",'12:00','19:00',7,'7:30');
 
 insert into flights(flightNum,date,departure,arrival,route)values('SST002',"2023-06-13",'14:30','16:00',2);
 
+SELECT * from flights;
+/*
 SELECT f.id, f.flightNum, f.date, f.departure, f.arrival, f.route, r1.origin AS departureApt, r1.destination AS arrivalApt
 FROM flights f
 JOIN routes r1 ON f.route = r1.id
@@ -100,8 +103,8 @@ SELECT flights.flightNum, flights.date, flights.departure, flights.arrival,
        departure_airports.name AS departureAirportName, arrival_airports.name AS arrivalAirportName
 FROM flights
 JOIN routes ON routes.id = flights.route
-JOIN airports AS departure_airports ON departure_airports.ICAO = routes.departureAirport
-JOIN airports AS arrival_airports ON arrival_airports.ICAO = routes.arrivalAirport
+JOIN airports AS departure_airports ON departure_airports.ICAO = routes.origin
+JOIN airports AS arrival_airports ON arrival_airports.ICAO = routes.destination
 WHERE flights.id = 1;
-
+*/
 
