@@ -71,7 +71,7 @@
                                 <input type="date" id="fecha-vuelta" name="fecha-vuelta">
                             </div>
                         </div>
-                        <input id="submit-button" class="disabled-button" disabled type="submit" value="Buscar vuelos">
+                        <input id="submit-button" class="search-button" type="submit" value="Buscar vuelos">
                     </div>
                 </form>
             </div>
