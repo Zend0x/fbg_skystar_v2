@@ -93,3 +93,15 @@ FROM flights f
 JOIN routes r1 ON f.route = r1.id
 JOIN routes r2 ON r1.origin = r2.origin AND r1.destination = r2.destination
 WHERE f.date LIKE '2023-06-12' AND r2.origin = 'LEPA' AND r2.destination = 'LEMD';
+
+select * from flights;
+
+SELECT flights.flightNum, flights.date, flights.departure, flights.arrival, 
+       departure_airports.name AS departureAirportName, arrival_airports.name AS arrivalAirportName
+FROM flights
+JOIN routes ON routes.id = flights.route
+JOIN airports AS departure_airports ON departure_airports.ICAO = routes.departureAirport
+JOIN airports AS arrival_airports ON arrival_airports.ICAO = routes.arrivalAirport
+WHERE flights.id = 1;
+
+
