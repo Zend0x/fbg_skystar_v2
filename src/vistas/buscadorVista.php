@@ -6,10 +6,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../css/buscador-vuelos.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
     <title>Búsqueda</title>
     <?php
     ini_set('display_errors', 1);
     ini_set('html_errors', 1);
+
+    session_start();
+    if (isset($_SESSION['username'])) {
+        $sessionActive = true;
+    } else {
+        $sessionActive = false;
+    }
 
 
     require("../negocio/vuelosReglasNegocio.php");
@@ -28,7 +38,14 @@
                 <span class="navbar-brand"><a href="inicioVista.php"><img src="../../assets/skystar_airways.png" alt="" srcset=""></a></span>
             </div>
             <div class="navbar-right">
-                <button class="login-button">Iniciar sesión</button>
+                <?php
+                if (!$sessionActive) {
+                    echo '<button class="login-button"><a href="loginVista.php" class="log-in">Iniciar sesión</a></button>';
+                } else if ($sessionActive) {
+                    echo '<p>Bienvenido, ' . $_SESSION['username'] . '</p>';
+                    echo '<A href="logoutVista.php" class="log-out">Cerrar sesión</A>';
+                }
+                ?>
             </div>
         </nav>
         <div class="content">
