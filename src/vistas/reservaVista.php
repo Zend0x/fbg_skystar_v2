@@ -3,7 +3,6 @@ session_start();
 require '../negocio/vuelosReglasNegocio.php';
 $vuelosBL = new VuelosReglasNegocio();
 $datosIda = $vuelosBL->buscarPorID($_POST["vuelo-ida"]);
-// comprobar si hay una sesión iniciada. si no, echarlo a la página de indice
 if (!isset($_SESSION['username'])) {
     header('Location: loginVista.php');
 }
@@ -148,8 +147,11 @@ if (isset($_POST['precio-vuelta'])) {
                 <p><a class="information-link" href="aboutUsVista.php">Conoce más sobre nuestra aerolínea y nuestra historia.</a></p>
             </div>
             <div class="information-column">
-                <h4><a class="information-link" href="contactoVista.php">Contacto</a></h4>
-                <p><a class="information-link" href="contactoVista.php">Encuentra nuestras formas de contacto y atención al cliente.</a></p>
+                <h4>Contacto</a></h4>
+                <p>Atención al cliente: 971 700 960
+                    <br>
+                    Email: soporte@skystar.mo</a>
+                </p>
             </div>
         </div>
     </section>

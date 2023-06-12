@@ -12,9 +12,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
     <?php
     session_start();
-    // if (!isset($_SESSION['usuario'])) {
-    //     header("Location: loginVista.php");
-    // }
+    if (!isset($_SESSION['username'])) {
+        header("Location: loginVista.php");
+    }
     require("../negocio/reservasReglasNegocio.php");
     $reservation = new reservaReglasNegocio();
     $reservation->init_searchUser($_SESSION['username']);
@@ -62,7 +62,6 @@
             <div id="reservas">
                 <h2>Mis Reservas</h2>
                 <?php
-                // foreach of $reservationList, print each format in a card list
                 foreach ($reservationList as $reservation) {
                     echo '<div class="card">
                     <div class="card-header">

@@ -77,22 +77,140 @@ insert into airports(icao,name)values('RKSI','Seoul-Incheon International Airpor
 insert into routes(id,origin,destination,basePrice)values(1,'LEPA','LEMD',20);
 insert into routes(id,origin,destination,basePrice)values(2,'LEMD','LEPA',20);
 insert into routes(id,origin,destination,basePrice)values(3,'LEMD','VHHH',400);
-insert into routes(id,origin,destination,basePrice)values(4,'LEPA','EDDF',50);
-insert into routes(id,origin,destination,basePrice)values(5,'LEMD','RKSI',500);
-insert into routes(id,origin,destination,basePrice)values(6,'LEPA','UTTT',250);
-insert into routes(id,origin,destination,basePrice)values(7,'UTTT','LEPA',250);
+insert into routes(id,origin,destination,basePrice)values(4,'VHHH','LEMD',500);
+insert into routes(id,origin,destination,basePrice)values(5,'LEPA','EDDF',50);
+insert into routes(id,origin,destination,basePrice)values(6,'EDDF','LEPA',50);
+insert into routes(id,origin,destination,basePrice)values(7,'LEMD','RKSI',500);
+insert into routes(id,origin,destination,basePrice)values(8,'RKSI','LEMD',500);
+insert into routes(id,origin,destination,basePrice)values(9,'LEPA','UTTT',250);
+insert into routes(id,origin,destination,basePrice)values(10,'UTTT','LEPA',250);
     
 insert into planes(registryNum,brand,model,paxNum)values('EC-SKT','Airbus','A320-214',180);
 
-insert into flights(flightNum,date,departure,arrival,route,flightDuration,plane,capacity)values('SST001',"2023-06-12",'12:00','13:30',1,'01:30','EC-SKT',0);
-insert into flights(flightNum,date,departure,arrival,route,flightDuration,plane,capacity)values('SST002',"2023-06-12",'14:30','16:00',2,'01:30','EC-SKT',180);
-insert into flights(flightNum,date,departure,arrival,route,flightDuration,plane,capacity)values('SST003',"2023-06-12",'17:00','18:30',1,'01:30','EC-SKT',180);
-insert into flights(flightNum,date,departure,arrival,route,flightDuration,plane,capacity)values('SST005',"2023-06-12",'19:30','21:00',2,'01:30','EC-SKT',180);
-insert into flights(flightNum,date,departure,arrival,route,flightDuration)values('SST641',"2023-06-26",'12:00','06:00',6,'12:30');
-insert into flights(flightNum,date,departure,arrival,route,flightDuration)values('SST642',"2023-06-27",'12:00','19:00',7,'7:30');
+INSERT INTO flights (flightNum, date, departure, arrival, route, flightDuration, plane, capacity) 
+VALUES ('SST001', '2023-06-13', '12:00', '13:30', 1, '01:30', 'EC-SKT', 180);
+INSERT INTO flights (flightNum, date, departure, arrival, route, flightDuration, plane, capacity) 
+VALUES ('SST002', '2023-06-13', '14:30', '16:00', 2, '01:30', 'EC-SKT', 180);
+INSERT INTO flights (flightNum, date, departure, arrival, route, flightDuration, plane, capacity) 
+VALUES ('SST003', '2023-06-13', '17:00', '18:30', 1, '01:30', 'EC-SKT', 180);
+INSERT INTO flights (flightNum, date, departure, arrival, route, flightDuration, plane, capacity) 
+VALUES ('SST004', '2023-06-13', '19:30', '21:00', 2, '01:30', 'EC-SKT', 180);
+INSERT INTO flights (flightNum, date, departure, arrival, route, flightDuration, plane, capacity) 
+VALUES ('SST521', '2023-06-13', '12:00', '13:30', 3, '01:30', 'EC-SKT', 180);
+INSERT INTO flights (flightNum, date, departure, arrival, route, flightDuration, plane, capacity) 
+VALUES ('SST522', '2023-06-13', '14:30', '16:00', 4, '01:30', 'EC-SKT', 180);
+INSERT INTO flights (flightNum, date, departure, arrival, route, flightDuration, plane, capacity) 
+VALUES ('SST641', '2023-06-13', '12:00', '13:30', 5, '01:30', 'EC-SKT', 180);
+INSERT INTO flights (flightNum, date, departure, arrival, route, flightDuration, plane, capacity) 
+VALUES ('SST642', '2023-06-13', '14:30', '16:00', 6, '01:30', 'EC-SKT', 180);
+INSERT INTO flights (flightNum, date, departure, arrival, route, flightDuration, plane, capacity) 
+VALUES ('SST952', '2023-06-13', '12:00', '13:30', 7, '01:30', 'EC-SKT', 180);
+INSERT INTO flights (flightNum, date, departure, arrival, route, flightDuration, plane, capacity) 
+VALUES ('SST953', '2023-06-13', '14:30', '16:00', 8, '01:30', 'EC-SKT', 180);
+INSERT INTO flights (flightNum, date, departure, arrival, route, flightDuration, plane, capacity) 
+VALUES ('SST100', '2023-06-13', '12:00', '13:30', 9, '01:30', 'EC-SKT', 180);
+INSERT INTO flights (flightNum, date, departure, arrival, route, flightDuration, plane, capacity) 
+VALUES ('SST101', '2023-06-13', '14:30', '16:00', 10, '01:30', 'EC-SKT', 180);
 
-insert into flights(flightNum,date,departure,arrival,route)values('SST002',"2023-06-13",'14:30','16:00',2);
+INSERT INTO flights (flightNum, date, departure, arrival, route, flightDuration, plane, capacity) 
+VALUES ('SST001', '2023-06-14', '12:00', '13:30', 1, '01:30', 'EC-SKT', 180);
+INSERT INTO flights (flightNum, date, departure, arrival, route, flightDuration, plane, capacity) 
+VALUES ('SST002', '2023-06-14', '14:30', '16:00', 2, '01:30', 'EC-SKT', 180);
+INSERT INTO flights (flightNum, date, departure, arrival, route, flightDuration, plane, capacity) 
+VALUES ('SST003', '2023-06-14', '17:00', '18:30', 1, '01:30', 'EC-SKT', 180);
+INSERT INTO flights (flightNum, date, departure, arrival, route, flightDuration, plane, capacity) 
+VALUES ('SST004', '2023-06-14', '19:30', '21:00', 2, '01:30', 'EC-SKT', 180);
+INSERT INTO flights (flightNum, date, departure, arrival, route, flightDuration, plane, capacity) 
+VALUES ('SST521', '2023-06-14', '12:00', '13:30', 3, '01:30', 'EC-SKT', 180);
+INSERT INTO flights (flightNum, date, departure, arrival, route, flightDuration, plane, capacity) 
+VALUES ('SST522', '2023-06-14', '14:30', '16:00', 4, '01:30', 'EC-SKT', 180);
+INSERT INTO flights (flightNum, date, departure, arrival, route, flightDuration, plane, capacity) 
+VALUES ('SST641', '2023-06-14', '12:00', '13:30', 5, '01:30', 'EC-SKT', 180);
+INSERT INTO flights (flightNum, date, departure, arrival, route, flightDuration, plane, capacity) 
+VALUES ('SST642', '2023-06-14', '14:30', '16:00', 6, '01:30', 'EC-SKT', 180);
+INSERT INTO flights (flightNum, date, departure, arrival, route, flightDuration, plane, capacity) 
+VALUES ('SST952', '2023-06-14', '12:00', '13:30', 7, '01:30', 'EC-SKT', 180);
+INSERT INTO flights (flightNum, date, departure, arrival, route, flightDuration, plane, capacity) 
+VALUES ('SST953', '2023-06-14', '14:30', '16:00', 8, '01:30', 'EC-SKT', 180);
+INSERT INTO flights (flightNum, date, departure, arrival, route, flightDuration, plane, capacity) 
+VALUES ('SST100', '2023-06-14', '12:00', '13:30', 9, '01:30', 'EC-SKT', 180);
+INSERT INTO flights (flightNum, date, departure, arrival, route, flightDuration, plane, capacity) 
+VALUES ('SST101', '2023-06-14', '14:30', '16:00', 10, '01:30', 'EC-SKT', 180);
 
+INSERT INTO flights (flightNum, date, departure, arrival, route, flightDuration, plane, capacity) 
+VALUES ('SST001', '2023-06-15', '12:00', '13:30', 1, '01:30', 'EC-SKT', 180);
+INSERT INTO flights (flightNum, date, departure, arrival, route, flightDuration, plane, capacity) 
+VALUES ('SST002', '2023-06-15', '14:30', '16:00', 2, '01:30', 'EC-SKT', 180);
+INSERT INTO flights (flightNum, date, departure, arrival, route, flightDuration, plane, capacity) 
+VALUES ('SST003', '2023-06-15', '17:00', '18:30', 1, '01:30', 'EC-SKT', 180);
+INSERT INTO flights (flightNum, date, departure, arrival, route, flightDuration, plane, capacity) 
+VALUES ('SST004', '2023-06-15', '19:30', '21:00', 2, '01:30', 'EC-SKT', 180);
+INSERT INTO flights (flightNum, date, departure, arrival, route, flightDuration, plane, capacity) 
+VALUES ('SST521', '2023-06-15', '12:00', '13:30', 3, '01:30', 'EC-SKT', 180);
+INSERT INTO flights (flightNum, date, departure, arrival, route, flightDuration, plane, capacity) 
+VALUES ('SST522', '2023-06-15', '14:30', '16:00', 4, '01:30', 'EC-SKT', 180);
+INSERT INTO flights (flightNum, date, departure, arrival, route, flightDuration, plane, capacity) 
+VALUES ('SST641', '2023-06-15', '12:00', '13:30', 5, '01:30', 'EC-SKT', 180);
+INSERT INTO flights (flightNum, date, departure, arrival, route, flightDuration, plane, capacity) 
+VALUES ('SST642', '2023-06-15', '14:30', '16:00', 6, '01:30', 'EC-SKT', 180);
+INSERT INTO flights (flightNum, date, departure, arrival, route, flightDuration, plane, capacity) 
+VALUES ('SST952', '2023-06-15', '12:00', '13:30', 7, '01:30', 'EC-SKT', 180);
+INSERT INTO flights (flightNum, date, departure, arrival, route, flightDuration, plane, capacity) 
+VALUES ('SST953', '2023-06-15', '14:30', '16:00', 8, '01:30', 'EC-SKT', 180);
+INSERT INTO flights (flightNum, date, departure, arrival, route, flightDuration, plane, capacity) 
+VALUES ('SST100', '2023-06-15', '12:00', '13:30', 9, '01:30', 'EC-SKT', 180);
+INSERT INTO flights (flightNum, date, departure, arrival, route, flightDuration, plane, capacity) 
+VALUES ('SST101', '2023-06-15', '14:30', '16:00', 10, '01:30', 'EC-SKT', 180);
+
+INSERT INTO flights (flightNum, date, departure, arrival, route, flightDuration, plane, capacity) 
+VALUES ('SST001', '2023-06-16', '12:00', '13:30', 1, '01:30', 'EC-SKT', 180);
+INSERT INTO flights (flightNum, date, departure, arrival, route, flightDuration, plane, capacity) 
+VALUES ('SST002', '2023-06-16', '14:30', '16:00', 2, '01:30', 'EC-SKT', 180);
+INSERT INTO flights (flightNum, date, departure, arrival, route, flightDuration, plane, capacity) 
+VALUES ('SST003', '2023-06-16', '17:00', '18:30', 1, '01:30', 'EC-SKT', 180);
+INSERT INTO flights (flightNum, date, departure, arrival, route, flightDuration, plane, capacity) 
+VALUES ('SST004', '2023-06-16', '19:30', '21:00', 2, '01:30', 'EC-SKT', 180);
+INSERT INTO flights (flightNum, date, departure, arrival, route, flightDuration, plane, capacity) 
+VALUES ('SST521', '2023-06-16', '12:00', '13:30', 3, '01:30', 'EC-SKT', 180);
+INSERT INTO flights (flightNum, date, departure, arrival, route, flightDuration, plane, capacity) 
+VALUES ('SST522', '2023-06-16', '14:30', '16:00', 4, '01:30', 'EC-SKT', 180);
+INSERT INTO flights (flightNum, date, departure, arrival, route, flightDuration, plane, capacity) 
+VALUES ('SST641', '2023-06-16', '12:00', '13:30', 5, '01:30', 'EC-SKT', 180);
+INSERT INTO flights (flightNum, date, departure, arrival, route, flightDuration, plane, capacity) 
+VALUES ('SST642', '2023-06-16', '14:30', '16:00', 6, '01:30', 'EC-SKT', 180);
+INSERT INTO flights (flightNum, date, departure, arrival, route, flightDuration, plane, capacity) 
+VALUES ('SST952', '2023-06-16', '12:00', '13:30', 7, '01:30', 'EC-SKT', 180);
+INSERT INTO flights (flightNum, date, departure, arrival, route, flightDuration, plane, capacity) 
+VALUES ('SST953', '2023-06-16', '14:30', '16:00', 8, '01:30', 'EC-SKT', 180);
+INSERT INTO flights (flightNum, date, departure, arrival, route, flightDuration, plane, capacity) 
+VALUES ('SST100', '2023-06-16', '12:00', '13:30', 9, '01:30', 'EC-SKT', 180);
+INSERT INTO flights (flightNum, date, departure, arrival, route, flightDuration, plane, capacity) 
+VALUES ('SST101', '2023-06-16', '14:30', '16:00', 10, '01:30', 'EC-SKT', 180);
+
+INSERT INTO flights (flightNum, date, departure, arrival, route, flightDuration, plane, capacity) 
+VALUES ('SST001', '2023-06-17', '12:00', '13:30', 1, '01:30', 'EC-SKT', 180);
+INSERT INTO flights (flightNum, date, departure, arrival, route, flightDuration, plane, capacity) 
+VALUES ('SST002', '2023-06-17', '14:30', '16:00', 2, '01:30', 'EC-SKT', 180);
+INSERT INTO flights (flightNum, date, departure, arrival, route, flightDuration, plane, capacity) 
+VALUES ('SST003', '2023-06-17', '17:00', '18:30', 1, '01:30', 'EC-SKT', 180);
+INSERT INTO flights (flightNum, date, departure, arrival, route, flightDuration, plane, capacity) 
+VALUES ('SST004', '2023-06-17', '19:30', '21:00', 2, '01:30', 'EC-SKT', 180);
+INSERT INTO flights (flightNum, date, departure, arrival, route, flightDuration, plane, capacity) 
+VALUES ('SST521', '2023-06-17', '12:00', '13:30', 3, '01:30', 'EC-SKT', 180);
+INSERT INTO flights (flightNum, date, departure, arrival, route, flightDuration, plane, capacity) 
+VALUES ('SST522', '2023-06-17', '14:30', '16:00', 4, '01:30', 'EC-SKT', 180);
+INSERT INTO flights (flightNum, date, departure, arrival, route, flightDuration, plane, capacity) 
+VALUES ('SST641', '2023-06-17', '12:00', '13:30', 5, '01:30', 'EC-SKT', 180);
+INSERT INTO flights (flightNum, date, departure, arrival, route, flightDuration, plane, capacity) 
+VALUES ('SST642', '2023-06-17', '14:30', '16:00', 6, '01:30', 'EC-SKT', 180);
+INSERT INTO flights (flightNum, date, departure, arrival, route, flightDuration, plane, capacity) 
+VALUES ('SST952', '2023-06-17', '12:00', '13:30', 7, '01:30', 'EC-SKT', 180);
+INSERT INTO flights (flightNum, date, departure, arrival, route, flightDuration, plane, capacity) 
+VALUES ('SST953', '2023-06-17', '14:30', '16:00', 8, '01:30', 'EC-SKT', 180);
+INSERT INTO flights (flightNum, date, departure, arrival, route, flightDuration, plane, capacity) 
+VALUES ('SST100', '2023-06-17', '12:00', '13:30', 9, '01:30', 'EC-SKT', 180);
+INSERT INTO flights (flightNum, date, departure, arrival, route, flightDuration, plane, capacity) 
+VALUES ('SST101', '2023-06-17', '14:30', '16:00', 10, '01:30', 'EC-SKT', 180);
 
 /*
 SELECT f.id, f.flightNum, f.date, f.departure, f.arrival, f.route, r1.origin AS departureApt, r1.destination AS arrivalApt

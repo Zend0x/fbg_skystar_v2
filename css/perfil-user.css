@@ -94,3 +94,56 @@ body {
 #reservas {
   margin-top: 20px;
 }
+.information-section {
+  background-color: #f9f9f9;
+  padding: 40px 20px;
+}
+
+.information-container {
+  display: flex;
+  justify-content: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.information-column {
+  flex-basis: 33.33%;
+  padding: 0 10px;
+  text-align: left;
+}
+
+.information-link:link,
+.information-link:visited {
+  color: black;
+  text-decoration: none;
+}
+
+.information-column h4 {
+  margin-bottom: 10px;
+}
+
+.information-column p {
+  font-size: 14px;
+}
+
+footer {
+  height: 5%;
+  padding: 20px;
+  background-color: #854cb4;
+  color: white;
+}
+
+.footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+.footer-content img {
+  width: 12%;
+  height: 7%;
+  margin-right: 20px;
+  padding-bottom: 10px;
+}

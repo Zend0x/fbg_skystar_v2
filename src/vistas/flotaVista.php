@@ -100,8 +100,11 @@
                 <p><a class="information-link" href="aboutUsVista.php">Conoce más sobre nuestra aerolínea y nuestra historia.</a></p>
             </div>
             <div class="information-column">
-                <h4><a class="information-link" href="contactoVista.php">Contacto</a></h4>
-                <p><a class="information-link" href="contactoVista.php">Encuentra nuestras formas de contacto y atención al cliente.</a></p>
+                <h4>Contacto</a></h4>
+                <p>Atención al cliente: 971 700 960
+                    <br>
+                    Email: soporte@skystar.mo</a>
+                </p>
             </div>
         </div>
     </section>
