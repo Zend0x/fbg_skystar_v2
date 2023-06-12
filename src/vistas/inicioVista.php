@@ -81,7 +81,7 @@
             if (!$sessionActive) {
                 echo '<button class="login-button"><a href="loginVista.php" class="log-in">Iniciar sesión</a></button>';
             } else if ($sessionActive) {
-                echo '<p>Bienvenido, <a href="perfilVista.php">' . $_SESSION['username'] . '</a></p>';
+                echo '<p>Bienvenido, <a href="perfilVista.php" class="welcome">' . $_SESSION['username'] . '</a></p>';
                 echo '<A href="logoutVista.php" class="log-out">Cerrar sesión</A>';
             }
             ?>

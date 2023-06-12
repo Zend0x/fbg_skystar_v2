@@ -46,6 +46,11 @@ h1 {
   border-radius: 4px;
   cursor: pointer;
 }
+.welcome:link,
+.welcome:visited {
+  color: white;
+  text-decoration: none;
+}
 .log-in:link,
 .log-in:visited {
   color: #854cb4;
@@ -54,6 +59,7 @@ h1 {
 .log-out:link,
 .log-out:visited {
   color: white;
+  text-decoration: none;
 }
 .login-button:hover {
   background-color: rgb(236, 236, 236);
