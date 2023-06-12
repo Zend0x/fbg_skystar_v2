@@ -98,6 +98,19 @@ h1 {
   background: #dec5f3;
 }
 
+.navbar-error {
+  background-color: #854cb4;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  height: 50%;
+  width: 100%;
+}
+.error {
+  margin-left: 37%;
+  margin-top: 10%;
+}
+
 form {
   width: 60%;
   margin: 0 auto;
