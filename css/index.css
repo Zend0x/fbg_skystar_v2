@@ -77,7 +77,6 @@ h1 {
   display: none;
 }
 .trip-type label {
-  font-family: sans-serif;
   padding: 10px 16px;
   border-right: 1px solid #ccc;
   cursor: pointer;
