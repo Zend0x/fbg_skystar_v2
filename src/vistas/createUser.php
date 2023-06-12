@@ -19,7 +19,7 @@
         $telefono = $_POST['telefono'];
         $usuario = new usuarioReglasNegocio();
         $usuario->insertarUsuario($username, $password, $nombre, $apellidos, $email, $telefono);
-        header('Location: inicioVista.php');
+        header('Location: loginVista.php');
     }
 
     ?>
