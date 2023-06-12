@@ -21,6 +21,7 @@ create table routes(
 	origin varchar(4) not null,
 	destination varchar(4) not null,
 	distance int(4),
+    basePrice int(4),
 	foreign key (origin) references airports(icao),
 	foreign key (destination) references airports(icao)
 );
@@ -34,6 +35,7 @@ create table flights(
 	route int(6) not null,
 	plane varchar(10),
     flightDuration time,
+    capacity int(3),
 	foreign key (route) references routes(id),
 	foreign key (plane) references planes(registryNum)
 );
@@ -57,10 +59,6 @@ create table reservations(
 	foreign key (flight) references flights(id)
 );
 
-select * from users;
-select * from flights;
-select * from reservations;
-
 create table flightsReservations(
 	flightId int(6),
 	reservationId int(6),
@@ -76,36 +74,25 @@ insert into airports(icao,name)values('VHHH','Hong Kong International Airport');
 insert into airports(icao,name)values('EDDF','Frankfurt Airport');
 insert into airports(icao,name)values('RKSI','Seoul-Incheon International Airport');
 
-insert into routes(id,origin,destination)values(1,'LEPA','LEMD');
-insert into routes(id,origin,destination)values(2,'LEMD','LEPA');
-insert into routes(id,origin,destination)values(3,'LEMD','VHHH');
-insert into routes(id,origin,destination)values(4,'LEPA','EDDF');
-insert into routes(id,origin,destination)values(5,'LEMD','RKSI');
-insert into routes(id,origin,destination)values(6,'LEPA','UTTT');
-insert into routes(id,origin,destination)values(7,'UTTT','LEPA');
+insert into routes(id,origin,destination,basePrice)values(1,'LEPA','LEMD',20);
+insert into routes(id,origin,destination,basePrice)values(2,'LEMD','LEPA',20);
+insert into routes(id,origin,destination,basePrice)values(3,'LEMD','VHHH',400);
+insert into routes(id,origin,destination,basePrice)values(4,'LEPA','EDDF',50);
+insert into routes(id,origin,destination,basePrice)values(5,'LEMD','RKSI',500);
+insert into routes(id,origin,destination,basePrice)values(6,'LEPA','UTTT',250);
+insert into routes(id,origin,destination,basePrice)values(7,'UTTT','LEPA',250);
     
 insert into planes(registryNum,brand,model,paxNum)values('EC-SKT','Airbus','A320-214',180);
 
-insert into flights(flightNum,date,departure,arrival,route,flightDuration,plane)values('SST001',"2023-06-12",'12:00','13:30',1,'01:30','EC-SKT');
-insert into flights(flightNum,date,departure,arrival,route,flightDuration,plane)values('SST002',"2023-06-12",'14:30','16:00',2,'01:30','EC-SKT');
-insert into flights(flightNum,date,departure,arrival,route,flightDuration,plane)values('SST003',"2023-06-12",'17:00','18:30',1,'01:30','EC-SKT');
-insert into flights(flightNum,date,departure,arrival,route,flightDuration,plane)values('SST005',"2023-06-12",'19:30','21:00',2,'01:30','EC-SKT');
+insert into flights(flightNum,date,departure,arrival,route,flightDuration,plane,capacity)values('SST001',"2023-06-12",'12:00','13:30',1,'01:30','EC-SKT',0);
+insert into flights(flightNum,date,departure,arrival,route,flightDuration,plane,capacity)values('SST002',"2023-06-12",'14:30','16:00',2,'01:30','EC-SKT',180);
+insert into flights(flightNum,date,departure,arrival,route,flightDuration,plane,capacity)values('SST003',"2023-06-12",'17:00','18:30',1,'01:30','EC-SKT',180);
+insert into flights(flightNum,date,departure,arrival,route,flightDuration,plane,capacity)values('SST005',"2023-06-12",'19:30','21:00',2,'01:30','EC-SKT',180);
 insert into flights(flightNum,date,departure,arrival,route,flightDuration)values('SST641',"2023-06-26",'12:00','06:00',6,'12:30');
 insert into flights(flightNum,date,departure,arrival,route,flightDuration)values('SST642',"2023-06-27",'12:00','19:00',7,'7:30');
 
 insert into flights(flightNum,date,departure,arrival,route)values('SST002',"2023-06-13",'14:30','16:00',2);
 
-SELECT * from flights;
-
-SELECT res.id, res.user, res.flight, res.date, res.price, a1.name AS origin_airport, a2.name AS destination_airport, f.flightNum as 'flightNumber'
-        FROM reservations res
-        JOIN flights f ON res.flight = f.id
-        JOIN routes r ON f.route = r.id
-        JOIN airports a1 ON r.origin = a1.icao
-        JOIN airports a2 ON r.destination = a2.icao
-        WHERE res.user = "fernando";
-
-select * from reservations;
 
 /*
 SELECT f.id, f.flightNum, f.date, f.departure, f.arrival, f.route, r1.origin AS departureApt, r1.destination AS arrivalApt
