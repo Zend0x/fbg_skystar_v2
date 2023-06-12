@@ -31,6 +31,15 @@
     if ($_POST['fecha-vuelta'] != "") {
         $datosVuelosVuelta = $vuelosBL->obtener($_POST['arr_apt'], $_POST['dep_apt'], $_POST['fecha-vuelta']);
     }
+
+    function calcularPrecioVuelo($capacidad, $tarifaBase)
+    {
+        $factor = 1 - ($capacidad / 180);
+        $precio = $tarifaBase * (1 + $factor);
+        $precio = round($precio, 2);
+
+        return $precio;
+    }
     ?>
 </head>
 
@@ -75,28 +84,30 @@
                     <div id="vuelos-ida">
                         <?php
                         foreach ($datosVuelosIda as $vuelo) {
-                            $precio = rand(15, 50);
-                            echo '<div class="flight-card ida">';
-                            echo '<div class="departure-time">';
-                            echo '<h2>Salida</h2>';
-                            echo '<p>' . $vuelo->getDepartureTime() . '</p>';
-                            echo '<p>' . $vuelo->getDeparture() . '</p>';
-                            echo '<p>' . $vuelo->getFlightNum() . '</p>';
-                            echo '<input style="display:none;" type="radio" id="flight-ida" name="vuelo-ida" value="' . $vuelo->getId() . '">';
-                            echo '</div>';
-                            echo '<div class="center-info">';
-                            echo '<img src="../../assets/airplane.png" alt="airplane">';
-                            echo '<p>' . $vuelo->getDate() . '</p>';
-                            echo '<input type="hidden" name="fecha-ida" value="' . $vuelo->getFlightNum() . '">';
-                            echo '</div>';
-                            echo '<div class="arrival-time">';
-                            echo '<h2>Llegada</h2>';
-                            echo '<p>' . $vuelo->getArrivalTime() . '</p>';
-                            echo '<p>' . $vuelo->getArrival() . '</p>';
-                            echo '<p class="price">' . $precio . '€</p>';
-                            echo '<input type="hidden" name="precio-ida" value="' . $precio . '">';
-                            echo '</div>';
-                            echo '</div>';
+                            if (intval($vuelo->getCapacity()) > 0) {
+                                $precio = calcularPrecioVuelo($vuelo->getCapacity(), $vuelo->getBasePrice()) * $_POST['passengers'];
+                                echo '<div class="flight-card ida">';
+                                echo '<div class="departure-time">';
+                                echo '<h2>Salida</h2>';
+                                echo '<p>' . $vuelo->getDepartureTime() . '</p>';
+                                echo '<p>' . $vuelo->getDeparture() . '</p>';
+                                echo '<p>' . $vuelo->getFlightNum() . '</p>';
+                                echo '<input style="display:none;" type="radio" id="flight-ida" name="vuelo-ida" value="' . $vuelo->getId() . '">';
+                                echo '</div>';
+                                echo '<div class="center-info">';
+                                echo '<img src="../../assets/airplane.png" alt="airplane">';
+                                echo '<p>' . $vuelo->getDate() . '</p>';
+                                echo '<input type="hidden" name="fecha-ida" value="' . $vuelo->getFlightNum() . '">';
+                                echo '</div>';
+                                echo '<div class="arrival-time">';
+                                echo '<h2>Llegada</h2>';
+                                echo '<p>' . $vuelo->getArrivalTime() . '</p>';
+                                echo '<p>' . $vuelo->getArrival() . '</p>';
+                                echo '<p class="price">' . $precio . '€</p>';
+                                echo '<input type="hidden" name="precio-ida" value="' . $precio . '">';
+                                echo '</div>';
+                                echo '</div>';
+                            }
                         }
                         ?>
                     </div>

@@ -16,7 +16,7 @@ class VuelosAccesoDatos
             echo 'Error al conectar a la base de datos.' . mysqli_connect_error();
         }
         mysqli_select_db($conexion, 'skystar_airways');
-        $textoConsulta = 'SELECT f.id, f.flightNum, f.date, f.departure, f.arrival, f.route, r1.origin AS departureApt, r1.destination AS arrivalApt
+        $textoConsulta = 'SELECT f.id, f.flightNum, f.date, f.departure, f.arrival, f.route,f.capacity, r1.basePrice as basePrice, r1.origin AS departureApt, r1.destination AS arrivalApt
         FROM flights f
         JOIN routes r1 ON f.route = r1.id
         JOIN routes r2 ON r1.origin = r2.origin AND r1.destination = r2.destination
@@ -62,7 +62,7 @@ class VuelosAccesoDatos
             echo 'Error al conectar a la base de datos.' . mysqli_connect_error();
         }
         mysqli_select_db($conexion, 'skystar_airways');
-        $query = "SELECT flights.flightNum, flights.date, flights.departure, flights.arrival, flights.flightDuration, 
+        $query = "SELECT flights.flightNum, flights.date, flights.departure, flights.arrival, flights.flightDuration,
         departure_airports.name AS departureApt, arrival_airports.name AS arrivalApt
         FROM flights
         JOIN routes ON routes.id = flights.route
