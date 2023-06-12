@@ -33,7 +33,7 @@
                     <img src="../../assets/allwhite_a320.jpg" alt="ec-skt">
                 </div>
                 <div class="card-content">
-                    <h2>EC-SKT</h2>
+                    <h2>EC-SKT, el pionero</h2>
                     <p>
                         El avión A320ceo, registrado bajo el código EC-SKT, es una joya de la aviación que ha dejado su huella en la historia de nuestra compañía. Con su diseño aerodinámico y rendimiento excepcional, el EC-SKT ha sido un fiel compañero en innumerables aventuras aéreas.
                         <br>
@@ -60,25 +60,25 @@
                     <img src="../../assets/allwhite_A350.webp" alt="EC-SKS">
                 </div>
                 <div class="card-content">
-                    <h2>EC-SKT, el orgullo de la compañía</h2>
+                    <h2>EC-SKS, el orgullo de la compañía</h2>
                     <p>
-                        El avión A350, registrado bajo el código EC-SKT, es una maravilla de la ingeniería aeroespacial que ha revolucionado la experiencia de vuelo en nuestra compañía. Este elegante y moderno avión ha llevado la excelencia y el confort a nuevas alturas, cautivando a nuestros pasajeros desde el momento en que suben a bordo.
+                        El avión A350, registrado bajo el código EC-SKS, es una maravilla de la ingeniería aeroespacial que ha revolucionado la experiencia de vuelo en nuestra compañía. Este elegante y moderno avión ha llevado la excelencia y el confort a nuevas alturas, cautivando a nuestros pasajeros desde el momento en que suben a bordo.
                         <br>
-                        El EC-SKT se ha ganado un lugar destacado en nuestra flota como un símbolo de innovación y vanguardia. Este avión de última generación ha sido equipado con las últimas tecnologías y características de diseño, brindando una experiencia de vuelo sin precedentes tanto para los viajeros de negocios como para aquellos que buscan un viaje relajante.
+                        El EC-SKS se ha ganado un lugar destacado en nuestra flota como un símbolo de innovación y vanguardia. Este avión de última generación ha sido equipado con las últimas tecnologías y características de diseño, brindando una experiencia de vuelo sin precedentes tanto para los viajeros de negocios como para aquellos que buscan un viaje relajante.
                         <br>
-                        Con su distintiva librea y líneas aerodinámicas, el EC-SKT ha dejado una impresión duradera en los cielos y en la industria de la aviación. Este avión ha sido aclamado por su eficiencia energética y sostenibilidad, ofreciendo un menor consumo de combustible y una reducción significativa en las emisiones de carbono.
+                        Con su distintiva librea y líneas aerodinámicas, el EC-SKS ha dejado una impresión duradera en los cielos y en la industria de la aviación. Este avión ha sido aclamado por su eficiencia energética y sostenibilidad, ofreciendo un menor consumo de combustible y una reducción significativa en las emisiones de carbono.
                         <br>
-                        Dentro de la cabina del EC-SKT, los pasajeros son recibidos con un ambiente sofisticado y lujoso. Los asientos ergonómicos, amplios y cómodos permiten un viaje placentero, mientras que las ventanas panorámicas ofrecen vistas impresionantes del mundo exterior. El diseño interior ha sido cuidadosamente planificado para maximizar el espacio y proporcionar una sensación de amplitud.
+                        Dentro de la cabina del EC-SKS, los pasajeros son recibidos con un ambiente sofisticado y lujoso. Los asientos ergonómicos, amplios y cómodos permiten un viaje placentero, mientras que las ventanas panorámicas ofrecen vistas impresionantes del mundo exterior. El diseño interior ha sido cuidadosamente planificado para maximizar el espacio y proporcionar una sensación de amplitud.
                         <br>
-                        El EC-SKT cuenta con tecnología de última generación, como sistemas de entretenimiento a bordo de vanguardia y conectividad WiFi, que mantienen a nuestros pasajeros conectados y entretenidos durante todo el vuelo. Además, la avanzada aviónica y los sistemas de navegación del A350 garantizan una travesía suave y segura en todos los aspectos.
+                        El EC-SKS cuenta con tecnología de última generación, como sistemas de entretenimiento a bordo de vanguardia y conectividad WiFi, que mantienen a nuestros pasajeros conectados y entretenidos durante todo el vuelo. Además, la avanzada aviónica y los sistemas de navegación del A350 garantizan una travesía suave y segura en todos los aspectos.
                         <br>
-                        Este avión representa un hito en la historia de nuestra aerolínea, ya que fue el primero de su tipo en unirse a nuestra flota. Desde ese momento, el EC-SKT ha sido testigo de innumerables momentos memorables, desde vuelos inaugurales hasta viajes inolvidables que han llevado a nuestros pasajeros a destinos de ensueño.
+                        Este avión representa un hito en la historia de nuestra aerolínea, ya que fue el primero de su tipo en unirse a nuestra flota. Desde ese momento, el EC-SKS ha sido testigo de innumerables momentos memorables, desde vuelos inaugurales hasta viajes inolvidables que han llevado a nuestros pasajeros a destinos de ensueño.
                         <br>
-                        A medida que miramos hacia el futuro, el EC-SKT continúa siendo un símbolo de nuestra dedicación a ofrecer una experiencia de vuelo excepcional. Este avión emblemático seguirá siendo un elemento fundamental de nuestra flota, llevando nuestros valores y compromiso con la calidad a nuevas alturas.
+                        A medida que miramos hacia el futuro, el EC-SKS continúa siendo un símbolo de nuestra dedicación a ofrecer una experiencia de vuelo excepcional. Este avión emblemático seguirá siendo un elemento fundamental de nuestra flota, llevando nuestros valores y compromiso con la calidad a nuevas alturas.
                         <br>
-                        El avión EC-SKT, con su elegancia y rendimiento sobresaliente, ha dejado una huella imborrable en nuestra compañía y en los corazones de aquellos que han tenido el privilegio de volar en él.
+                        El avión EC-SKS, con su elegancia y rendimiento sobresaliente, ha dejado una huella imborrable en nuestra compañía y en los corazones de aquellos que han tenido el privilegio de volar en él.
                         <br>
-                        ¡Que el EC-SKT siga volando alto y transportando a nuestros pasajeros hacia un futuro lleno de aventuras y descubrimientos!
+                        ¡Que el EC-SKS siga volando alto y transportando a nuestros pasajeros hacia un futuro lleno de aventuras y descubrimientos!
                     </p>
                     <div class="seatmap">
                         <img src="../../assets/a350_seatmap.jpg" alt="a320_seats">
