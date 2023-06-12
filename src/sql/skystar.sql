@@ -212,6 +212,7 @@ VALUES ('SST100', '2023-06-17', '12:00', '13:30', 9, '01:30', 'EC-SKT', 180);
 INSERT INTO flights (flightNum, date, departure, arrival, route, flightDuration, plane, capacity) 
 VALUES ('SST101', '2023-06-17', '14:30', '16:00', 10, '01:30', 'EC-SKT', 180);
 
+
 /*
 SELECT f.id, f.flightNum, f.date, f.departure, f.arrival, f.route, r1.origin AS departureApt, r1.destination AS arrivalApt
 FROM flights f
