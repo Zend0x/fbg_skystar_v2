@@ -42,7 +42,14 @@ h1 {
 .navbar-right {
   display: flex;
   align-items: center;
+  flex-direction: column;
   margin-right: 1%;
+}
+
+.welcome:link,
+.welcome:visited {
+  color: white;
+  text-decoration: none;
 }
 .login-button {
   padding: 10px 20px;

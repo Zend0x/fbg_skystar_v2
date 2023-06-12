@@ -7,6 +7,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <?php
+    session_start();
+    ?>
 </head>
 
 <body>
@@ -21,8 +24,8 @@
                 if (!isset($_SESSION['username'])) {
                     echo '<button class="login-button"><a href="loginVista.php" class="log-in">Iniciar sesión</a></button>';
                 } else if ($_SESSION['username']) {
-                    echo '<p>Bienvenido, <a href="perfilVista.php" class="log-in">' . $_SESSION['username'] . '</a></p>';
-                    echo '<A href="logoutVista.php" class="log-out">Cerrar sesión</A>';
+                    echo '<p>Bienvenido, <a href="perfilVista.php" class="welcome">' . $_SESSION['username'] . '</a></p>';
+                    echo '<A href="logoutVista.php" class="welcome">Cerrar sesión</A>';
                 }
                 ?>
             </div>
