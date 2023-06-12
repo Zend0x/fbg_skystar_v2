@@ -143,4 +143,11 @@ class VuelosReglasNegocio
         }
         return $datosVuelos;
     }
+    function updateCapacity($id, $capacity)
+    {
+        $vuelosDAL = new VuelosAccesoDatos();
+        $rs = $vuelosDAL->updateCapacity($id, $capacity);
+
+        return $rs;
+    }
 }

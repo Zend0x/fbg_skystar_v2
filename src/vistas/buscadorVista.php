@@ -114,7 +114,7 @@
                     <div id="vuelos-vuelta" style="display: none;">
                         <?php
                         foreach ($datosVuelosVuelta as $vuelo) {
-                            $precio = rand(15, 50);
+                            $precio = calcularPrecioVuelo($vuelo->getCapacity(), $vuelo->getBasePrice()) * $_POST['passengers'];
                             echo '<div class="flight-card vuelta">';
                             echo '<div class="departure-time">';
                             echo '<h2>Salida</h2>';
@@ -140,6 +140,7 @@
                         ?>
                     </div>
                     <input type="hidden" name="vuelo-ida" id="vuelo-ida" value="">
+                    <input type="hidden" name="passengerNumber" id="passengerNumber" value="<?php echo $_POST['passengers'] ?>">
                     <?php
                     if (!empty($datosVuelosIda)) {
                         echo '<button type="submit" id="next-button" class="submit-button">Siguiente</button>';

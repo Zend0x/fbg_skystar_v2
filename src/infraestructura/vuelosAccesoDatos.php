@@ -79,4 +79,18 @@ class VuelosAccesoDatos
         }
         return $vuelo;
     }
+    function updateCapacity($id, $passengers)
+    {
+        $conexion = mysqli_connect('localhost', 'root', '12345');
+        if (mysqli_connect_errno()) {
+            echo 'Error al conectar a la base de datos.' . mysqli_connect_error();
+        }
+        mysqli_select_db($conexion, 'skystar_airways');
+        $query = "UPDATE flights SET capacity = capacity - (?) WHERE id = (?);";
+        $consulta = mysqli_prepare($conexion, $query);
+        $consulta->bind_param("ii", $passengers, $id);
+        $consulta->execute();
+        $results = $consulta->get_result();
+        return $results;
+    }
 }
