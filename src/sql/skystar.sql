@@ -57,6 +57,10 @@ create table reservations(
 	foreign key (flight) references flights(id)
 );
 
+select * from users;
+select * from flights;
+select * from reservations;
+
 create table flightsReservations(
 	flightId int(6),
 	reservationId int(6),
@@ -79,17 +83,30 @@ insert into routes(id,origin,destination)values(4,'LEPA','EDDF');
 insert into routes(id,origin,destination)values(5,'LEMD','RKSI');
 insert into routes(id,origin,destination)values(6,'LEPA','UTTT');
 insert into routes(id,origin,destination)values(7,'UTTT','LEPA');
+    
+insert into planes(registryNum,brand,model,paxNum)values('EC-SKT','Airbus','A320-214',180);
 
-insert into flights(flightNum,date,departure,arrival,route,flightDuration)values('SST001',"2023-06-12",'12:00','13:30',1,'01:30');
-insert into flights(flightNum,date,departure,arrival,route,flightDuration)values('SST002',"2023-06-12",'14:30','16:00',2,'01:30');
-insert into flights(flightNum,date,departure,arrival,route,flightDuration)values('SST003',"2023-06-12",'17:00','18:30',1,'01:30');
-insert into flights(flightNum,date,departure,arrival,route,flightDuration)values('SST005',"2023-06-12",'19:30','21:00',2,'01:30');
+insert into flights(flightNum,date,departure,arrival,route,flightDuration,plane)values('SST001',"2023-06-12",'12:00','13:30',1,'01:30','EC-SKT');
+insert into flights(flightNum,date,departure,arrival,route,flightDuration,plane)values('SST002',"2023-06-12",'14:30','16:00',2,'01:30','EC-SKT');
+insert into flights(flightNum,date,departure,arrival,route,flightDuration,plane)values('SST003',"2023-06-12",'17:00','18:30',1,'01:30','EC-SKT');
+insert into flights(flightNum,date,departure,arrival,route,flightDuration,plane)values('SST005',"2023-06-12",'19:30','21:00',2,'01:30','EC-SKT');
 insert into flights(flightNum,date,departure,arrival,route,flightDuration)values('SST641',"2023-06-26",'12:00','06:00',6,'12:30');
 insert into flights(flightNum,date,departure,arrival,route,flightDuration)values('SST642',"2023-06-27",'12:00','19:00',7,'7:30');
 
 insert into flights(flightNum,date,departure,arrival,route)values('SST002',"2023-06-13",'14:30','16:00',2);
 
 SELECT * from flights;
+
+SELECT res.id, res.user, res.flight, res.date, res.price, a1.name AS origin_airport, a2.name AS destination_airport, f.flightNum as 'flightNumber'
+        FROM reservations res
+        JOIN flights f ON res.flight = f.id
+        JOIN routes r ON f.route = r.id
+        JOIN airports a1 ON r.origin = a1.icao
+        JOIN airports a2 ON r.destination = a2.icao
+        WHERE res.user = "fernando";
+
+select * from reservations;
+
 /*
 SELECT f.id, f.flightNum, f.date, f.departure, f.arrival, f.route, r1.origin AS departureApt, r1.destination AS arrivalApt
 FROM flights f
