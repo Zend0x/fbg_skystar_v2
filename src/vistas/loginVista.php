@@ -3,7 +3,6 @@
 
 <head>
   <title>Página de Inicio de Sesión</title>
-  <link rel="stylesheet" href="../../css/index.css">
   <link rel="shortcut icon" href="../../assets/favicons/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" type="text/css" href="../../css/login.css">
   <?php
@@ -26,10 +25,10 @@
 <body>
   <div class="login-container">
     <h2>Iniciar Sesión</h2>
-    <form action="loginVista.php" method="POST">
+    <form action="loginVista.php" method="POST" class="login-form">
       <input type="text" placeholder="Usuario" name="username" autocomplete="off">
       <input type="password" placeholder="Contraseña" name="password" autocomplete="off">
-      <input type="submit" value="Iniciar Sesión">
+      <input type="submit" value="Iniciar Sesión" class="login-button">
     </form>
     <p><a class="register-link" href="createUser.php">Registrar</a></p>
     <?php
