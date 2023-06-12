@@ -19,6 +19,10 @@
     $reservation = new reservaReglasNegocio();
     $reservation->init_searchUser($_SESSION['username']);
     $reservationList = $reservation->getById();
+
+    require("../negocio/usuarioReglasNegocio.php");
+    $user = new usuarioReglasNegocio();
+    $userInfo = $user->getUserInfo($_SESSION['username']);
     ?>
 </head>
 
@@ -29,7 +33,14 @@
                 <span class="navbar-brand"><a href="inicioVista.php"><img src="../../assets/skystar_airways.png" alt="" srcset=""></a></span>
             </div>
             <div class="navbar-right">
-                <button class="login-button">Iniciar sesión</button>
+                <?php
+                if (!$_SESSION['username']) {
+                    echo '<button class="login-button"><a href="loginVista.php" class="log-in">Iniciar sesión</a></button>';
+                } else if ($_SESSION['username']) {
+                    echo '<p>Bienvenido, <a href="perfilVista.php">' . $_SESSION['username'] . '</a></p>';
+                    echo '<A href="logoutVista.php" class="log-out">Cerrar sesión</A>';
+                }
+                ?>
             </div>
         </nav>
         <div class="content">
@@ -37,15 +48,15 @@
             <div class="profile-info">
                 <div class="info-group">
                     <span class="label">Nombre:</span>
-                    <span class="value" id="nombre"></span>
+                    <span class="value" id="nombre"><?php echo $userInfo['name']; ?></span>
                 </div>
                 <div class="info-group">
                     <span class="label">Apellidos:</span>
-                    <span class="value" id="apellidos"></span>
+                    <span class="value" id="apellidos"><?php echo $userInfo['surnames']; ?></span>
                 </div>
                 <div class="info-group">
                     <span class="label">Teléfono:</span>
-                    <span class="value" id="telefono"></span>
+                    <span class="value" id="telefono"><?php echo $userInfo['phoneNum']; ?></span>
                 </div>
             </div>
             <div id="reservas">
@@ -55,17 +66,13 @@
                 foreach ($reservationList as $reservation) {
                     echo '<div class="card">
                     <div class="card-header">
-                        <span class="flight-number">' . $reservation['flight'] . '</span>
+                        <span class="flight-number">' . $reservation['flightNumber'] . '</span>
                         <span class="flight-date">' . $reservation['date'] . '</span>
                     </div>
                     <div class="card-body">
                         <div class="flight-info">
-                            <span class="flight-origin">' . $reservation['origin_airport'] . '</span>
+                            <span class="flight-origin">' . $reservation['origin_airport'] . '</span> →
                             <span class="flight-destination">' . $reservation['destination_airport'] . '</span>
-                        </div>
-                        <div class="flight-price">
-                            <span class="flight-price-label">Precio:</span>
-                            <span class="flight-price-value">' . $reservation['price'] . '</span>
                         </div>
                     </div>';
                 }

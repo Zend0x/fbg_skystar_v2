@@ -57,4 +57,27 @@ class usuarioAccesoDatos
             return false;
         }
     }
+    function getUserInfo($username)
+    {
+        // funcion para obtener la informacion del usuario
+        $conexion = mysqli_connect('localhost', 'root', '12345');
+        if (mysqli_connect_errno()) {
+            echo 'Error al conectar a la base de datos.' . mysqli_connect_error();
+        }
+        mysqli_select_db($conexion, 'skystar_airways');
+        $textoConsulta = "select name,surnames,email,phoneNum from users where username = ?;";
+        $sanitized_user = mysqli_real_escape_string($conexion, $username);
+        $consulta = mysqli_prepare($conexion, $textoConsulta);
+        $consulta->bind_param("s", $sanitized_user);
+        $consulta->execute();
+        $results = $consulta->get_result();
+        if ($results->num_rows == 0) {
+            return false;
+        }
+        if ($results->num_rows > 1) {
+            return false;
+        }
+        $myrow = $results->fetch_assoc();
+        return $myrow;
+    }
 }

@@ -27,6 +27,10 @@ class usuarioReglasNegocio
         $this->_EMAIL = $email;
         $this->_TELEFONO = $telefono;
     }
+    function init_search($username)
+    {
+        $this->_USERNAME = $username;
+    }
 
 
     function insertarUsuario($username, $password, $nombre, $apellidos, $email, $telefono)
@@ -40,6 +44,13 @@ class usuarioReglasNegocio
     {
         $userDAL = new usuarioAccesoDatos();
         $res = $userDAL->login($username, $hashedPassword);
+
+        return $res;
+    }
+    function getUserInfo($username)
+    {
+        $userDAL = new usuarioAccesoDatos();
+        $res = $userDAL->getUserInfo($username);
 
         return $res;
     }
