@@ -42,10 +42,10 @@
             </div>
             <div class="navbar-right">
                 <?php
-                if (!$sessionActive) {
+                if (!isset($_SESSION['username'])) {
                     echo '<button class="login-button"><a href="loginVista.php" class="log-in">Iniciar sesión</a></button>';
-                } else if ($sessionActive) {
-                    echo '<p>Bienvenido, ' . $_SESSION['username'] . '</p>';
+                } else if ($_SESSION['username']) {
+                    echo '<p>Bienvenido, <a href="perfilVista.php">' . $_SESSION['username'] . '</a></p>';
                     echo '<A href="logoutVista.php" class="log-out">Cerrar sesión</A>';
                 }
                 ?>
@@ -56,15 +56,20 @@
             <div class="main-column">
                 <form id="flight-selection-form" action="reservaVista.php" method="post">
                     <?php
-                    if ($_POST['fecha-vuelta'] != "") {
-                        echo '
-                        <div class="leg-selector">
-                            <input type="radio" id="flight-ida" name="flight-type" value="ida" checked>
-                            <label for="flight-ida">Vuelo de Ida</label>
-    
-                            <input type="radio" id="flight-vuelta" name="flight-type" value="vuelta">
-                            <label for="flight-vuelta">Vuelo de Vuelta</label>
-                        </div>';
+                    if (empty($datosVuelosIda)) {
+                        echo '<h2 style="text-align:Center;">No hay vuelos disponibles para esta ruta.</h2>';
+                        echo '<h2 style="text-align:Center;">Por favor, selecciona otras fechas.</h2>';
+                    } else {
+                        if ($_POST['fecha-vuelta'] != "") {
+                            echo '
+                            <div class="leg-selector">
+                                <input type="radio" id="flight-ida" name="flight-type" value="ida" checked>
+                                <label for="flight-ida">Vuelo de Ida</label>
+        
+                                <input type="radio" id="flight-vuelta" name="flight-type" value="vuelta">
+                                <label for="flight-vuelta">Vuelo de Vuelta</label>
+                            </div>';
+                        }
                     }
                     ?>
                     <div id="vuelos-ida">
@@ -124,7 +129,11 @@
                         ?>
                     </div>
                     <input type="hidden" name="vuelo-ida" id="vuelo-ida" value="">
-                    <button type="submit" id="next-button" class="submit-button">Siguiente</button>
+                    <?php
+                    if (!empty($datosVuelosIda)) {
+                        echo '<button type="submit" id="next-button" class="submit-button">Siguiente</button>';
+                    }
+                    ?>
                 </form>
 
             </div>

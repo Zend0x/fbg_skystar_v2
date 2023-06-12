@@ -1,31 +1,15 @@
 <?php
 session_start();
-
-// var_dump($_POST["vuelo-ida"]);
-// echo '<br>';
-// var_dump($_POST["vuelo-vuelta"]);
-// echo '<br>';
-// var_dump($_POST['precio-ida']);
-// echo '<br>';
-// var_dump($_POST['precio-vuelta']);
-// echo '<br>';
-// echo "fecha: " . $_POST['fecha-ida'];
-// echo '<br>';
-
-// echo "fecha de vuelta: " . $_POST['fecha-vuelta'];
-// require("../negocio/reservasReglasNegocio.php");
-
-// $reservaIDA = new reservaReglasNegocio();
-// $reservaIDA->init($_POST['vuelo-ida'], $_SESSION['username'], $_POST['fecha-ida'], $_POST['precio-ida']);
-// echo $reservaIDA->insertar();
-
-// $reservaVuelta = new reservaReglasNegocio();
-// $reservaVuelta->init($_POST['vuelo-vuelta'], $_SESSION['username'], $_POST['fecha-vuelta'], $_POST['precio-vuelta']);
-// echo $reservaVuelta->insertar();
-// echo '<br>';
 require '../negocio/vuelosReglasNegocio.php';
 $vuelosBL = new VuelosReglasNegocio();
 $datosIda = $vuelosBL->buscarPorID($_POST["vuelo-ida"]);
+// comprobar si hay una sesión iniciada. si no, echarlo a la página de indice
+if (!isset($_SESSION['username'])) {
+    header('Location: loginVista.php');
+}
+if (!isset($_POST['vuelo-ida'])) {
+    header('Location: inicioVista.php');
+}
 if (isset($_POST["vuelo-vuelta"])) {
     $datosVuelta = $vuelosBL->buscarPorID($_POST["vuelo-vuelta"]);
 }
