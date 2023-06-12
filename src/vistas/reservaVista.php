@@ -18,7 +18,6 @@ if (isset($_POST['precio-vuelta'])) {
 } else {
     $precioTotal = intval($_POST['precio-ida']);
 }
-var_dump($_POST['passengerNumber'])
 ?>
 <!DOCTYPE html>
 <html lang="es">

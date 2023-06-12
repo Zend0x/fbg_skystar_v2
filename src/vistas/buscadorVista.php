@@ -51,11 +51,12 @@
             </div>
             <div class="navbar-right">
                 <?php
+
                 if (!isset($_SESSION['username'])) {
                     echo '<button class="login-button"><a href="loginVista.php" class="log-in">Iniciar sesión</a></button>';
                 } else if ($_SESSION['username']) {
-                    echo '<p>Bienvenido, <a href="perfilVista.php">' . $_SESSION['username'] . '</a></p>';
-                    echo '<A href="logoutVista.php" class="log-out">Cerrar sesión</A>';
+                    echo '<p>Bienvenido, <a href="perfilVista.php" class="welcome">' . $_SESSION['username'] . '</a></p>';
+                    echo '<A href="logoutVista.php" class="welcome">Cerrar sesión</A>';
                 }
                 ?>
             </div>
