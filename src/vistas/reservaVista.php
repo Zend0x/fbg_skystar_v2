@@ -13,9 +13,9 @@ if (isset($_POST["vuelo-vuelta"])) {
     $datosVuelta = $vuelosBL->buscarPorID($_POST["vuelo-vuelta"]);
 }
 if (isset($_POST['precio-vuelta'])) {
-    $precioTotal = intval($_POST['precio-ida']) + intval($_POST['precio-vuelta']);
+    $precioTotal = floatval($_POST['precio-ida']) + floatval($_POST['precio-vuelta']);
 } else {
-    $precioTotal = intval($_POST['precio-ida']);
+    $precioTotal = floatval($_POST['precio-ida']);
 }
 ?>
 <!DOCTYPE html>
