@@ -1,0 +1,165 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-family: "Poppins", sans-serif;
+  height: 100%;
+  width: 100%;
+}
+
+.content {
+  height: 100%;
+  width: 60%;
+  margin: auto;
+}
+
+.navbar {
+  background-color: #854cb4;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  height: 4rem;
+  margin-bottom: 1%;
+}
+.navbar-center {
+  flex-grow: 1;
+  text-align: center;
+}
+.navbar-center img {
+  height: 100%;
+  margin-left: 5rem;
+}
+
+.navbar-brand {
+  font-size: 20px;
+  font-weight: bold;
+  margin-left: 5%;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-right: 1%;
+}
+
+.navbar-right a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.login-button {
+  padding: 10px 20px;
+  background-color: white;
+  color: #854cb4;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10%;
+}
+.login-button:hover {
+  background-color: rgb(236, 236, 236);
+  transition: 0.5s;
+}
+
+.our-fleet {
+  text-align: center;
+  margin-bottom: 2%;
+}
+
+.card {
+  display: flex;
+  margin-bottom: 20px;
+  overflow: hidden;
+  flex-direction: column;
+}
+
+.card-image {
+  flex: 0 0 auto;
+}
+.card-image-a350 {
+  flex: 0 0 auto;
+}
+
+.card-image img {
+  width: 100%;
+  height: auto;
+}
+
+.card-image-a350 img {
+  width: 100%;
+  height: auto;
+}
+
+.card-content {
+  flex: 1;
+  padding: 10px;
+}
+
+.card-content h2 {
+  margin-top: 0;
+}
+
+.card-content p {
+  margin-bottom: 0;
+}
+.seatmap {
+  margin-left: 30%;
+}
+.information-section {
+  background-color: #f9f9f9;
+  padding: 40px 20px;
+}
+
+.information-container {
+  display: flex;
+  justify-content: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.information-column {
+  flex-basis: 33.33%;
+  padding: 0 10px;
+  text-align: left;
+}
+
+.information-link:link,
+.information-link:visited {
+  color: black;
+  text-decoration: none;
+}
+
+.information-column h4 {
+  margin-bottom: 10px;
+}
+
+.information-column p {
+  font-size: 14px;
+}
+
+footer {
+  height: 5%;
+  padding: 20px;
+  background-color: #854cb4;
+  color: white;
+}
+
+.footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+.footer-content img {
+  width: 12%;
+  height: 7%;
+  margin-right: 20px;
+  padding-bottom: 10px;
+}
